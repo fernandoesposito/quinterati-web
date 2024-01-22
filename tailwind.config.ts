@@ -18,7 +18,9 @@ const config: Config = {
         primary: "#001E3B",
         secondary: "#007BB2",
         subtitle: "#0C0C0C",
+        support: "#344054",
         "gray-200": "#EAECF0",
+        "gray-300": "#E0DDDD",
         "gray-500": "#4F4C4C",
       },
       fontSize: {
