@@ -21,7 +21,9 @@ const config: Config = {
         support: "#344054",
         "gray-200": "#EAECF0",
         "gray-300": "#E0DDDD",
+        "gray-400": "#D0D5DD",
         "gray-500": "#4F4C4C",
+        "gray-700": "#344054",
       },
       fontSize: {
         header: "2.5rem",
