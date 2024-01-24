@@ -1,10 +1,17 @@
+"use client"
+
+import Link from "next/link";
 import Image from "next/image";
-import quintera_logo from "../../public/quintera_logo.svg";
+import { usePathname } from "next/navigation";
+
 import whatsapp from "../../public/wapp.svg";
+import quintera_logo from "../../public/quintera_logo.svg";
 
 export const Navbar = () => {
+  const pathname = usePathname(); 
+
   return (
-    <nav className="px-[4.5rem] py-6 flex justify-between items-center w-screen">
+    <nav className="px-[4.5rem] py-6 flex justify-between items-center w-screen bg-white shadow-lg shadow-black/10 fixed z-10">
       <div className="flex justify-between items-center">
         <Image 
           src={quintera_logo} 
@@ -13,14 +20,56 @@ export const Navbar = () => {
           width={130}
           height={32} 
         />
-        <div className="flex gap-6 text-sm font-light">
-          <h5>Início</h5>
-          <h5>Benefícios</h5>
-          <h5>Produtos</h5>
-          <h5>Sobre nós</h5>
-          <h5>Contato via e-mail</h5>
-          <h5>FAQ’s</h5>
-        </div>
+        <ul className="flex gap-6 text-sm font-light text-gray-500">
+          <li>
+            <Link 
+              href="/inicio"
+              className={`link ${pathname === "/inicio" ? "text-primary" : ""}`}
+            >
+              Início
+            </Link>
+          </li>
+          <li>
+            <Link 
+              href="/beneficios"
+              className={`link ${pathname === "/beneficios" ? "text-primary" : ""}`}
+            >
+              Benefícios
+            </Link>
+          </li>
+          <li>
+            <Link 
+              href="/produtos"
+              className={`link ${pathname === "/produtos" ? "text-primary" : ""}`}
+            >
+              Produtos
+            </Link>
+          </li>
+          <li>
+            <Link 
+              href="/sobre"
+              className={`link ${pathname === "/sobre" ? "text-primary" : ""}`}
+            >
+              Sobre nós
+            </Link>
+          </li>
+          <li>
+            <Link 
+              href="/contato"
+              className={`link ${pathname === "/contato" ? "text-primary" : ""}`}
+              >
+                Contato via e-mail
+              </Link>
+          </li>
+          <li>
+            <Link 
+              href="/faqs"
+              className={`link ${pathname === "/faqs" ? "text-primary" : ""}`}
+              >
+                FAQ’s
+              </Link>
+          </li>
+        </ul>
       </div>
       <div className="flex gap-3">
         <div className="flex-col">

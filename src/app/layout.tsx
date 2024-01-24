@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Roboto, Poppins, Lato } from "next/font/google";
 import "./globals.css";
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["300", "400", "500", "700"]});
 const poppins = Poppins({ subsets: ["latin"], weight: ["300", "400", "500", "700"]});
@@ -24,7 +26,11 @@ export default function RootLayout({
           href="./icon.svg"
         />
       </head>
-      <body className={`${roboto.className} ${poppins.className} ${lato.className}`}>{children}</body>
+      <body className={`${roboto.className} ${poppins.className} ${lato.className}`}>
+        <Navbar />
+          {children}
+        <Footer />
+      </body>
     </html>
   );
 }

@@ -12,7 +12,7 @@ export const Input:  React.FC<CombinedProps> = ({ label, placeholder, type="text
   return (
     <div className="flex flex-col gap-2">
       { label ? 
-        <label className="text-gray-700 text-xs font-medium">
+        <label className="text-support text-xs font-medium">
           {label}
       </label> :
       <></>

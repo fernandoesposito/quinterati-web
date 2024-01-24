@@ -25,7 +25,7 @@ import quintera_logo from "../../../public/quintera_logo.svg";
 export default function Intro() {
   return (
     <>
-      <section className="w-screen bg-main px-28 pt-20 pb-4 flex-col">
+      <section className="w-screen bg-main px-28 pt-[calc(5rem+78px)] pb-4 flex flex-col">
         <div>
           {/* textos */}
           <div className="max-w-xl grid gap-6">
