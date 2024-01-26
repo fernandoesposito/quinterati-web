@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image";
 import { TbTargetArrow } from "react-icons/tb";
 import { FaArrowTrendUp } from "react-icons/fa6";
@@ -21,8 +23,12 @@ import globe from "../../../public/globe.svg";
 import email from "../../../public/email.svg";
 import brazil from "../../../public/brazil.svg";
 import quintera_logo from "../../../public/quintera_logo.svg";
+import { WhatsAppModal } from "@/components/whatsappModal";
+import { useState } from "react";
 
 export default function Intro() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <section className="w-screen bg-main px-28 pt-[calc(5rem+78px)] pb-4 flex flex-col">
@@ -108,7 +114,9 @@ export default function Intro() {
               text="Entrar em contato"
               icon={<FaWhatsapp />}
               style={{ position: "absolute", right: "-80px", bottom: "21px" }}
+              onClick={() => setIsOpen(true)}
             />
+            
             <Tag 
               icon={globe}
               description="Em todo o Brasil você
@@ -117,6 +125,7 @@ export default function Intro() {
               style={{ position: "absolute", right: "-100px", bottom: "80px" }}
             />
           </div>
+          { isOpen ? <WhatsAppModal isOpen={isOpen} setIsOpen={setIsOpen}/> : <></>}
         </div>
       </section>
       <section className="w-screen bg-white px-28 pt-12 pb-4 flex flex-col gap-12 items-center">
