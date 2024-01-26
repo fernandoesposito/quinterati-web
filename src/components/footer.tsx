@@ -14,17 +14,32 @@ export const Footer = () => {
             CEP: 09726-150
           </h4>
         </div>
-        <div className="flex justify-between text-gray-200 font-semibold gap-8">
-          <Link href="">Home</Link>
-          <Link href="">Benefícios</Link>
-          <Link href="">Serviços</Link>
-          <Link href="">Sobre nós</Link>
-          <Link href="">Contato via e-mail</Link>
-          <Link href="">FAQ’s</Link>
-          <Link href="">Termos de uso</Link>
-          <Link href="">Política de privacidade</Link>
-          <Link href="">Cookies</Link>
-        </div>
+        <ul className="flex justify-between text-gray-200 font-semibold gap-8">
+          <li>
+            <Link href="">Benefícios</Link>
+          </li>
+          <li>
+            <Link href="">Serviços</Link>
+          </li>
+          <li>
+            <Link href="/sobre">Sobre nós</Link>
+          </li>
+          <li>
+            <Link href="">Contato via e-mail</Link>
+          </li>
+          <li>
+            <Link href="/faqs">FAQ’s</Link>
+            </li>
+          <li>
+            <Link href="/uso">Termos de uso</Link>
+            </li>
+          <li>
+            <Link href="/privacidade">Política de privacidade</Link>
+            </li>
+          <li>
+            <Link href="">Cookies</Link>
+            </li> 
+        </ul>
       </div>
       <div className="w-full border border-white border-opacity-50 mt-12 mb-8"/>
       <span className="text-white font-normal">© 2024 quintera.com.br | Todos os direitos reservados.</span>

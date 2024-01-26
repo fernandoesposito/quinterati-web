@@ -1,11 +1,11 @@
+import { FaWhatsapp } from "react-icons/fa";
 import { TbTargetArrow } from "react-icons/tb";
 
+import { Button } from "@/components/button";
 import { Highlight } from "@/components/highlight";
 import { ProductCard } from "@/components/productCard";
 
 import product_example from "../../../public/product_example.svg";
-import { Button } from "@/components/button";
-import { FaWhatsapp } from "react-icons/fa";
 
 
 export default function Produtos() {

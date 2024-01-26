@@ -1,10 +1,6 @@
 "use client"
 
-import { 
-  Dispatch, 
-  SetStateAction, 
-  useState 
-} from "react";
+import { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
 import { IoClose } from "react-icons/io5";
 import { FaWhatsapp } from "react-icons/fa";
