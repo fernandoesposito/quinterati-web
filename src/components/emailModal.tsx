@@ -14,7 +14,7 @@ export const EmailModal = ({ isOpen, setIsOpen }: EmailModalProps) => {
   return (
     <>
       { isOpen ? 
-        <div className="flex flex-col items-center max-w-2xl p-5 rounded-xl bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="flex flex-col items-center max-w-2xl p-5 rounded-xl bg-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <div className="ml-auto text-secondary">
                 <IoClose 
                   style={{ cursor: "pointer" }} 
