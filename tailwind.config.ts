@@ -19,6 +19,9 @@ const config: Config = {
         secondary: "#007BB2",
         subtitle: "#0C0C0C",
         support: "#344054",
+        line: "#E9E9E9",
+        orbit: "#CDCDCD",
+        planet: "#D9D9D9",
         "gray-200": "#EAECF0",
         "gray-300": "#E0DDDD",
         "gray-400": "#D0D5DD",
@@ -27,6 +30,11 @@ const config: Config = {
       },
       fontSize: {
         header: "2.5rem",
+      },
+      animation: {
+        "spin-xs": "spin 20s linear infinite",
+        "spin-s": "spin 15s linear infinite",
+        "spin-normal": "spin 12s linear infinite",
       },
     },
   },
