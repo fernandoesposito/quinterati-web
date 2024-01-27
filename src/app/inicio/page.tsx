@@ -1,6 +1,9 @@
 "use client"
 
+import { useState } from "react";
+
 import Image from "next/image";
+
 import { TbTargetArrow } from "react-icons/tb";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { GoCheckCircle } from "react-icons/go";
@@ -16,64 +19,66 @@ import { PiGitFork } from "react-icons/pi";
 import { Tag } from "@/components/tag";
 import { Card } from "@/components/card";
 import { Input } from "@/components/input";
+import { Orbit } from "@/components/orbit";
 import { Button } from "@/components/button";
 import { Highlight } from "@/components/highlight";
+import { WhatsAppModal } from "@/components/whatsappModal";
 
 import globe from "../../../public/globe.svg";
 import email from "../../../public/email.svg";
 import brazil from "../../../public/brazil.svg";
 import quintera_logo from "../../../public/quintera_logo.svg";
-import { WhatsAppModal } from "@/components/whatsappModal";
-import { useState } from "react";
 
 export default function Intro() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <section className="w-screen bg-main px-28 pt-[calc(5rem+78px)] pb-4 flex flex-col">
-        <div>
+      <section className="w-screen bg-main lg:px-28 px-6 sm:pt-[calc(5rem+78px)] pt-[calc(44px+1.5rem)] flex flex-col">
+        <div className="grid grid-cols-2 gap-14">
           {/* textos */}
-          <div className="max-w-xl grid gap-6">
+          <div className="max-w-xl flex flex-col gap-6 place-items-center sm:place-items-start">
             <Highlight 
               icon={<TbTargetArrow />}
               description="Não existe meia conformidade com a lei"
             />
-            <h1 className="text-secondary font-black text-header leading-[3rem]">
+            <h1 className="text-secondary sm:font-black font-bold sm:text-left text-center sm:text-header sm:max-w-none max-w-64 text-lg sm:leading-[3rem] leading-6">
               Referência para o setor público em soluções personalizadas na segurança de dados
             </h1>
-            <span className="text-subtitle font-normal text-sm">
+            <span className="sm:text-subtitle text-gray-500 font-normal text-sm sm:text-left text-center leading-4 sm:max-w-none max-w-72">
               Nossa missão é arrumar sua casa com excelência para estar em conformidade com as mais atuais leis de segurança de dados. 
             </span>
           </div>
           {/* animacao */}
-          <div></div>
+          <div>
+            <Orbit />
+          </div>
         </div>
-        <div className="flex justify-center items-center gap-6 h-32 px-48 py-8 mt-28 mb-12 rounded-2xl border-white border shadow-md shadow-black-[.1]">
-          <h4 className="flex items-center font-medium text-base leading-5">
-            <span className="text-header font-black mr-2">1046</span>
+        <div className="flex sm:flex-row flex-col justify-center items-center sm:w-full w-[calc(16rem+1.5rem)] self-center sm:gap-6 gap-3 sm:h-32 sm:px-48 px-5 sm:py-8 py-5 sm:mt-28 mt-6 sm:mb-12 mb-8 rounded-2xl border-white border shadow-md shadow-black/10">
+          <h4 className="flex sm:flex-row flex-col items-center font-medium text-gray-500 sm:text-base text-xs sm:leading-5 leading-3 sm:text-left text-center">
+            <span className="sm:text-header text-3xl font-black text-primary sm:mr-2 ">1046</span>
             PROJETOS<br/> EXECUTADOS
           </h4>
-          <div className="w-[1px] bg-primary h-full"/>
-          <h4 className="flex items-center font-medium text-base leading-5">
-            <span className="text-header font-black mr-1">32</span>
+          <hr className="text-line sm:rotate-90 sm:w-1 sm:h-8 w-full "/>
+          <h4 className="flex sm:flex-row flex-col items-center font-medium text-gray-500 sm:text-base text-xs sm:leading-5 leading-3 sm:text-left text-center">
+            <span className="sm:text-header text-3xl font-black text-primary sm:mr-2 ">32</span>
             ANOS DE <br/>EXPERIÊNCIA
           </h4>
-          <div className="w-[1px] bg-primary h-full"/>
-          <h4 className="flex items-center font-medium text-base leading-5">
-            <span className="text-header font-black mr-1">100%</span>
+          <hr className="text-line sm:rotate-90 sm:w-1 sm:h-8 w-full "/>
+          <h4 className="flex sm:flex-row flex-col items-center font-medium text-gray-500 sm:text-base text-xs sm:leading-5 leading-3 sm:text-left text-center">
+            <span className="sm:text-header text-3xl font-black text-primary sm:mr-2 ">100%</span>
             PROJETOS<br/> ENTREGUES
           </h4>
         </div>
-        <div className="flex items-center justify-center">
-        <Highlight 
-          icon={<FaArrowTrendUp />}
-          description="Benefícios exclusivos"
-        />
-        </div>
       </section>
-      <section className="w-screen bg-main px-44 pb-16 flex flex-col gap-8 items-center justify-center">
-        <h2 className="font-black text-header text-center text-primary">
+      <section className="w-screen bg-main sm:px-44 px-6 pb-16 flex flex-col sm:gap-8 gap-2 items-center justify-center">
+        <div className="flex items-center justify-center">
+          <Highlight 
+            icon={<FaArrowTrendUp />}
+            description="Benefícios exclusivos"
+          />
+        </div>
+        <h2 className="sm:font-black font-bold sm:text-header text-lg text-center sm:max-w-none max-w-52 text-primary">
           Por que a Quintera se destaca no mercado?
         </h2>
         <div className="grid grid-cols-2 gap-[4.5rem]">
@@ -151,7 +156,7 @@ export default function Intro() {
           icon={<TbTargetArrow />}
         />
       </section>
-      <section className="w-screen bg-white flex flex-col pb-4 items-center">
+      <section className="w-screen bg-white flex flex-col pb-4 items-center pl-60 pr-36">
         <h3 className="font-black text-header text-center text-primary mb-12">Precisa de um contato personalizado?</h3>
         <div className="grid grid-cols-2 gap-9">
           <form className="flex flex-col gap-4">
