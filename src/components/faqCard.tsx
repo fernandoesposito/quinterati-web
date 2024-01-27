@@ -15,6 +15,7 @@ export const FaqCard = ({ id, icon, title, selectedId, setSelectedId, setCurrent
   useEffect(() => {
     id === selectedId ? setCurrentTopic(title) : null
   }, [id, selectedId, setCurrentTopic, title])
+  
   return (
     <div className={`flex flex-col gap-5 w-44 ${ selectedId === id ? "text-secondary" : "text-support"}`}>
       <button 

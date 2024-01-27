@@ -16,7 +16,8 @@ import { Highlight } from "@/components/highlight";
 
 export default function Faqs() {  
   const [ selectedId, setSelectedId ] = useState<number | null>(null);
-  const [currentTopic, setCurrentTopic] = useState<string>("");
+  const [ selectedFaqIndex, setSelectedFaqIndex ] = useState<number | null>(null);
+  const [ currentTopic, setCurrentTopic ] = useState<string>("");
 
   return (
     <>
@@ -92,6 +93,8 @@ export default function Faqs() {
               para você acompanhar em tempo real a criação do seu produto!"
               index={0}
               question="Como vou acompanhar o desenvolvimento?"
+              setSelectedFaqIndex={setSelectedFaqIndex}
+              selectedFaqIndex={selectedFaqIndex}
             />
             <FaqSection 
               answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
@@ -99,6 +102,8 @@ export default function Faqs() {
               para você acompanhar em tempo real a criação do seu produto!"
               index={1}
               question="Qual o valor mínimo de investimento em um projeto?"
+              setSelectedFaqIndex={setSelectedFaqIndex}
+              selectedFaqIndex={selectedFaqIndex}
             />
             <FaqSection 
               answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
@@ -106,6 +111,8 @@ export default function Faqs() {
               para você acompanhar em tempo real a criação do seu produto!"
               index={2}
               question="Qual a diferença entre nativo e web responsivo?"
+              setSelectedFaqIndex={setSelectedFaqIndex}
+              selectedFaqIndex={selectedFaqIndex}
             />
             <FaqSection 
               answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
@@ -113,6 +120,8 @@ export default function Faqs() {
               para você acompanhar em tempo real a criação do seu produto!"
               index={3}
               question="O que é um MVP?"
+              setSelectedFaqIndex={setSelectedFaqIndex}
+              selectedFaqIndex={selectedFaqIndex}
             />
             <FaqSection 
               answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
@@ -120,6 +129,8 @@ export default function Faqs() {
               para você acompanhar em tempo real a criação do seu produto!"
               index={4}
               question="Quais as diferenças entre  low-code, no-code e code?"
+              setSelectedFaqIndex={setSelectedFaqIndex}
+              selectedFaqIndex={selectedFaqIndex}
             />
           </div>
         </div> :
