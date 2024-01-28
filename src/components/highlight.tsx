@@ -1,5 +1,5 @@
 interface HighlightProps {
-  icon: any;
+  icon?: any;
   bgColor?: string;
   description: string;
 }
@@ -18,7 +18,7 @@ export const Highlight = ({ icon, bgColor="default" as string, description }: Hi
   return (
     <div className={`flex items-center gap-1 px-5 py-3 rounded-3xl w-fit border ${highlightVariants[bgColor as keyof HighlightVariantProps]}`}>
       { icon }
-      <span className={`text-sm font-normal ${ bgColor === "default" ? "text-gray-500" : "text-white" }`}>{description}</span>
+      <span className={`sm:text-sm text-[0.625rem] font-bold ${ bgColor === "default" ? "text-gray-500" : "text-white" }`}>{description}</span>
     </div>
   )
 }

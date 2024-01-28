@@ -11,7 +11,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { BsTrophy } from "react-icons/bs";
 import { TiDocumentText } from "react-icons/ti";
 import { RiFolderLockLine } from "react-icons/ri";
-import { FiLock } from "react-icons/fi";
+import { FiLock, FiMail } from "react-icons/fi";
 import { HiOutlineChip } from "react-icons/hi";
 import { HiOutlineSquare3Stack3D } from "react-icons/hi2";
 import { PiGitFork } from "react-icons/pi";
@@ -34,23 +34,28 @@ export default function Intro() {
 
   return (
     <>
-      <section className="w-screen bg-main lg:px-28 px-6 sm:pt-[calc(5rem+78px)] pt-[calc(44px+1.5rem)] flex flex-col">
-        <div className="grid grid-cols-2 gap-14">
+      <section className="w-screen bg-main lg:px-[4.5rem] px-6 sm:pt-[calc(5rem+78px)] pt-[calc(50px+1.5rem)] flex flex-col">
+        <div className="sm:grid sm:grid-cols-2 gap-12">
           {/* textos */}
           <div className="max-w-xl flex flex-col gap-6 place-items-center sm:place-items-start">
             <Highlight 
               icon={<TbTargetArrow />}
               description="Não existe meia conformidade com a lei"
             />
-            <h1 className="text-secondary sm:font-black font-bold sm:text-left text-center sm:text-header sm:max-w-none max-w-64 text-lg sm:leading-[3rem] leading-6">
-              Referência para o setor público em soluções personalizadas na segurança de dados
-            </h1>
-            <span className="sm:text-subtitle text-gray-500 font-normal text-sm sm:text-left text-center leading-4 sm:max-w-none max-w-72">
-              Nossa missão é arrumar sua casa com excelência para estar em conformidade com as mais atuais leis de segurança de dados. 
-            </span>
+            <div className="flex justify-center my-6 sm:hidden">
+              <Orbit />
+            </div>
+            <div className="w-fit flex flex-col gap-2 sm:gap-6 place-items-center sm:place-items-start">
+              <h1 className="text-secondary sm:font-black font-bold sm:text-left text-center sm:text-header sm:max-w-none max-w-64 text-lg sm:leading-[3rem] leading-6">
+                Referência para o setor público em soluções personalizadas na segurança de dados
+              </h1>
+              <span className="sm:text-subtitle text-gray-500 font-normal text-sm sm:text-left text-center leading-4 sm:max-w-none max-w-72">
+                Nossa missão é arrumar sua casa com excelência para estar em conformidade com as mais atuais leis de segurança de dados. 
+              </span>
+            </div>
           </div>
           {/* animacao */}
-          <div>
+          <div className="sm:flex hidden sm:justify-center">
             <Orbit />
           </div>
         </div>
@@ -71,95 +76,107 @@ export default function Intro() {
           </h4>
         </div>
       </section>
-      <section className="w-screen bg-main sm:px-44 px-6 pb-16 flex flex-col sm:gap-8 gap-2 items-center justify-center">
+      <section className="w-screen bg-main sm:px-44 px-6 sm:pb-16 pb-7 flex flex-col sm:gap-8 gap-2 items-center justify-center">
         <div className="flex items-center justify-center">
           <Highlight 
             icon={<FaArrowTrendUp />}
             description="Benefícios exclusivos"
           />
         </div>
-        <h2 className="sm:font-black font-bold sm:text-header text-lg text-center sm:max-w-none max-w-52 text-primary">
+        <h2 className="sm:font-black font-bold sm:text-header sm:leading-10 text-lg text-center sm:max-w-none max-w-52 text-primary">
           Por que a Quintera se destaca no mercado?
         </h2>
-        <div className="grid grid-cols-2 gap-[4.5rem]">
-          <div className="w-96 p-10 flex flex-col rounded-2xl border border-gray-300">
-            <Image src={quintera_logo} alt="quinterati logo"/>
-            <summary className="list-none mt-2 mb-5">
+        <div className="sm:hidden max-w-64 overflow-visible flex flex-col gap-2 mb-[calc(0.5rem+1rem)]">
+          <div className="flex justify-center gap-2">
+            <Highlight description="TI" />
+            <Highlight description="Serviços" />
+            <Highlight description="Infraestrutura" />
+          </div>
+          <div className="flex gap-2 justify-center">
+            <Highlight description="LGPD" />
+            <Highlight description="Cyber segurança" />
+          </div>
+        </div>
+        <div className="sm:grid sm:grid-cols-2 sm:gap-[4.5rem] flex flex-col gap-6">
+          <div className="sm:w-96 sm:p-10 p-7 flex flex-col items-center rounded-2xl border border-gray-300">
+            <Image src={quintera_logo} alt="quinterati logo" className="ml-auto mr-auto"/>
+            <summary className="list-none sm:mt-2 mt-4 sm:mb-5 mb-8 text-center sm:text-left text-gray-500 font-medium text-sm leading-5">
               Nós exergamos a necessidade do 
               setor público por parceiros realmente
               preocupados com a entrega e sustentação
               de seus produtos.
             </summary>
-            <dl className="flex flex-col gap-2">
+            <dl className="flex flex-col gap-2 text-gray-500 font-medium text-sm mr-auto">
               <dt className="flex gap-1">
-                <GoCheckCircle size={24}/>
+                <GoCheckCircle size={24} color="#001E3B"/>
                 <span>Consultoria e entendimento</span>
               </dt>
               <dt className="flex gap-1">
-                <GoCheckCircle size={24}/>
+                <GoCheckCircle size={24} color="#001E3B"/>
                 <span>Solução personalizada</span>
               </dt>
               <dt className="flex gap-1">
-                <GoCheckCircle size={24}/>
+                <GoCheckCircle size={24} color="#001E3B"/>
                 <span>Pagamento em reais</span>
               </dt>
               <dt className="flex gap-1">
-                <GoCheckCircle size={24}/>
+                <GoCheckCircle size={24} color="#001E3B"/>
                 <span>Suporte que funciona</span>
               </dt>
               <dt className="flex gap-1">
-                <GoCheckCircle size={24}/>
+                <GoCheckCircle size={24} color="#001E3B"/>
                 <span>Acompanhamento da implantação</span>
               </dt>
             </dl>
           </div>
-          <div className="relative"> 
+          <div className="relative flex flex-col items-center"> 
             <Image src={brazil} alt="mapa do Brasil"/>
-            <Button 
-              text="Entrar em contato"
-              icon={<FaWhatsapp />}
-              style={{ position: "absolute", right: "-80px", bottom: "21px" }}
-              onClick={() => setIsOpen(true)}
-            />
-            
-            <Tag 
-              icon={globe}
-              description="Em todo o Brasil você
-              encontra a excelênica
-              da Quintera!"
-              style={{ position: "absolute", right: "-100px", bottom: "80px" }}
-            />
+            <div className="sm:absolute sm:-right-20 sm:bottom-5 mt-6">
+              <Button 
+                text="Entrar em contato"
+                icon={<FaWhatsapp />}
+                onClick={() => setIsOpen(true)}
+              />
+            </div>
+            <div className="absolute sm:-right-24 sm:bottom-20 bottom-1/2">
+              <Tag 
+                icon={globe}
+                description="Em todo o Brasil você
+                encontra a excelênica
+                da Quintera!"
+              />
+            </div>
           </div>
           { isOpen ? <WhatsAppModal isOpen={isOpen} setIsOpen={setIsOpen}/> : <></>}
         </div>
       </section>
-      <section className="w-screen bg-white px-28 pt-12 pb-4 flex flex-col gap-12 items-center">
-        <div className="flex flex-col items-center justify-center gap-4 py-6 bg-main border w-full border-gray-300 rounded-2xl shadow-md shadow-black-[.1]">
+      <section className="w-screen sm:bg-white bg-gray-700 sm:px-28 px-6 sm:pt-12 py-8 sm:pb-4 flex flex-col gap-12 items-center">
+        <div className="flex flex-col items-center justify-center gap-4 sm:py-6 sm:bg-main sm:border w-full sm:border-gray-300 sm:rounded-2xl sm:shadow-md sm:shadow-black-[.1]">
           <Highlight 
             description="Fortalecimento do setor público"
             icon={<BsTrophy />}
             bgColor="blue"
           />
-          <div className="flex flex-col gap-1 justify-center items-center">
-            <h3 className="font-black text-header text-center text-primary">
+          <div className="flex flex-col gap-2 justify-center items-center">
+            <h3 className="font-black text-header text-center text-support max-w-72 sm:max-w-none leading-9">
               Exclusividade EMX no Brasil
             </h3>
-            <summary className="list-none font-medium text-center text-sm max-w-md text-support leading-5">
+            <summary className="list-none font-medium text-center text-sm sm:max-w-md text-support leading-5 max-w-80">
               Trabalhar em parceria com empresas líderes de mercado facilita o compartilhamento de ideias e experiências, 
               resultando em soluções mais eficientes e 
               adaptadas as necessidades do mercado além de um enorme compromisso com a excelência em suas entregas.
             </summary>
           </div>
         </div>
-        <Highlight 
-          description="Contato do especialista"
-          icon={<TbTargetArrow />}
-        />
       </section>
-      <section className="w-screen bg-white flex flex-col pb-4 items-center pl-60 pr-36">
-        <h3 className="font-black text-header text-center text-primary mb-12">Precisa de um contato personalizado?</h3>
-        <div className="grid grid-cols-2 gap-9">
-          <form className="flex flex-col gap-4">
+      <section className="w-screen bg-white flex flex-col sm:pb-4 sm:pt-8 pt-6 items-center sm:px-36 px-8">
+        <Highlight 
+            description="Contato do especialista"
+            icon={<TbTargetArrow />}
+          />
+        <h3 className="font-black sm:text-header text-lg leading-6 sm:leading-10 text-center text-primary max-sm:max-w-64 sm:mb-12 sm:mt-4 mt-2 mb-3">Precisa de um contato personalizado?</h3>
+        <div className="sm:grid sm:grid-cols-2 sm:gap-9 flex flex-col-reverse ">
+          <form className="flex flex-col gap-4 px-3">
             <Input 
               label="Nome"
               placeholder="Qual é o seu nome?"
@@ -173,25 +190,38 @@ export default function Intro() {
               label="Telefone/Whatsapp"
               placeholder="(00) 00000-0000"
             />
-            <Input 
-              label="Mensagem"
-              placeholder="Deixe uma breve mensagem."
+            <textarea 
+              rows={6}
+              className="px-5 py-3 border rounded-lg border-gray-400 
+              bg-white shadow shadow-black-[0.05] font-normal text-sm text-gray-500
+              placeholder:text-sm placeholder:font-normal resize-none"  
+              placeholder="Escreva sua mensagem"
             />
-            <Button 
-              text="Enviar mensagem"
-              style={{ marginLeft: "auto", marginRight: "auto", width: "100%"}}
-            />
+            <div className="sm:hidden">
+              <Button 
+                text="Enviar mensagem"
+                style={{ marginLeft: "auto", marginRight: "auto", maxWidth: "192px"}}
+                icon={<FiMail />}
+              />
+            </div>
+            <div className="max-sm:hidden">
+              <Button 
+                text="Enviar mensagem"
+                style={{ marginLeft: "auto", marginRight: "auto", width: "100%"}}
+              />
+            </div>
           </form>
           <Image src={email} alt="email" />
         </div>
+        
+      </section>
+      <section className="w-screen bg-white sm:pb-10 py-10 sm:px-36 px-11 flex flex-col items-center sm:gap-10">
         <Highlight 
           description="Sessão de ajuda por soluções"
           icon={<TbTargetArrow />}
         />
-      </section>
-      <section className="w-screen bg-white pb-10 px-36 flex flex-col items-center gap-10">
-        <h3 className="font-black text-header text-center text-primary">Veja algumas perguntas frequentes sobre:</h3>
-        <div className="grid grid-cols-3 gap-x-16 gap-y-8">
+        <h3 className="font-black sm:text-header text-lg max-sm:max-w-64 leading-6 max-sm:mt-2 max-sm:mb-6 text-center text-primary">Veja algumas perguntas frequentes sobre:</h3>
+        <div className="sm:grid sm:grid-cols-3 sm:gap-x-16 sm:gap-y-8 flex flex-col max-sm:w-full max-sm:gap-2">
           <Card 
             header="Documentação" 
             content="O planejamento financeiro é uma peça fundamental no quebra-cabeça do sucesso empresarial, 

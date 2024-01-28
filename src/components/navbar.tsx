@@ -11,16 +11,16 @@ export const Navbar = () => {
   const pathname = usePathname(); 
 
   return (
-    <nav className="px-[4.5rem] py-6 flex justify-between items-center w-screen bg-white shadow-lg shadow-black/10 fixed z-10">
-      <div className="flex justify-between items-center">
+    <nav className="sm:px-[4.5rem] px-7 sm:py-6 py-2 sm:flex justify-between items-center grid grid-cols-3 w-screen bg-white shadow-lg shadow-black/10 fixed z-20">
+      <div className="sm:flex sm:justify-between items-center col-span-2">
         <Image 
           src={quintera_logo} 
           alt="quintera logo"
-          className="mr-14" 
+          className="sm:mr-14 ml-auto" 
           width={130}
           height={32} 
         />
-        <ul className="flex gap-6 text-sm font-light text-gray-500">
+        <ul className="sm:flex hidden gap-6 text-sm font-light text-gray-500">
           <li>
             <Link 
               href="/inicio"
@@ -72,7 +72,7 @@ export const Navbar = () => {
         </ul>
       </div>
       <div className="flex gap-3">
-        <div className="flex-col">
+        <div className="sm:flex-col hidden">
           <p className="text-end font-light text-[0.625rem]">Contato:</p>
           <h3 className="font-medium text-sm">11 98504-0153</h3>
         </div>
@@ -81,6 +81,7 @@ export const Navbar = () => {
           alt="icone do whatsapp" 
           width={36} 
           height={36} 
+          className="ml-auto"
         />
       </div>
     </nav>

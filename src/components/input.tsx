@@ -8,7 +8,7 @@ interface InputProps {
 
 type CombinedProps = InputProps & HTMLProps<HTMLInputElement>
 
-export const Input:  React.FC<CombinedProps> = ({ label, placeholder, type="text" }) => {
+export const Input:  React.FC<CombinedProps> = ({ label, placeholder, ...rest }) => {
   return (
     <div className="flex flex-col gap-2">
       { label ? 
@@ -19,7 +19,7 @@ export const Input:  React.FC<CombinedProps> = ({ label, placeholder, type="text
       }
       
       <input 
-        type={type} 
+        {...rest}
         placeholder={placeholder} 
         className="px-5 py-3 border rounded-lg border-gray-400 
         bg-white shadow shadow-black-[0.05] font-normal text-sm text-gray-500
