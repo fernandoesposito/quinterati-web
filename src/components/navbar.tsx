@@ -1,26 +1,31 @@
 "use client"
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+
+import { WhatsAppModal } from "./whatsappModal";
 
 import whatsapp from "../../public/wapp.svg";
 import quintera_logo from "../../public/quintera_logo.svg";
 
 export const Navbar = () => {
   const pathname = usePathname(); 
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sm:px-[4.5rem] px-7 sm:py-6 py-2 sm:flex justify-between items-center grid grid-cols-3 w-screen bg-white shadow-lg shadow-black/10 fixed z-20">
-      <div className="sm:flex sm:justify-between items-center col-span-2">
+    <>
+    <nav className="lg:px-[4.5rem] px-7 md:py-6 py-2 md:flex justify-between items-center grid grid-cols-3 w-screen bg-white shadow-lg shadow-black/10 fixed z-20">
+      <div className="md:flex md:justify-between items-center max-md:col-span-2 max-md:col-start-2 max-md:col-end-3 max-md:justify-self-center ">
         <Image 
           src={quintera_logo} 
           alt="quintera logo"
-          className="sm:mr-14 ml-auto" 
+          className="md:mr-14" 
           width={130}
           height={32} 
         />
-        <ul className="sm:flex hidden gap-6 text-sm font-light text-gray-500">
+        <ul className="md:flex hidden lg:gap-6 md:gap-4 text-sm font-light text-gray-500">
           <li>
             <Link 
               href="/inicio"
@@ -31,7 +36,7 @@ export const Navbar = () => {
           </li>
           <li>
             <Link 
-              href="/beneficios"
+              href="#beneficios"
               className={`link ${pathname === "/beneficios" ? "text-primary" : ""}`}
             >
               Benefícios
@@ -55,7 +60,7 @@ export const Navbar = () => {
           </li>
           <li>
             <Link 
-              href="/contato"
+              href="#contato"
               className={`link ${pathname === "/contato" ? "text-primary" : ""}`}
               >
                 Contato via e-mail
@@ -72,7 +77,7 @@ export const Navbar = () => {
         </ul>
       </div>
       <div className="flex gap-3">
-        <div className="sm:flex-col hidden">
+        <div className="md:flex-col hidden">
           <p className="text-end font-light text-[0.625rem]">Contato:</p>
           <h3 className="font-medium text-sm">11 98504-0153</h3>
         </div>
@@ -81,9 +86,12 @@ export const Navbar = () => {
           alt="icone do whatsapp" 
           width={36} 
           height={36} 
-          className="ml-auto"
+          className="ml-auto cursor-pointer"
+          onClick={() => {setIsOpen(prev => !prev)}}
         />
       </div>
     </nav>
+      <WhatsAppModal isOpen={isOpen} setIsOpen={setIsOpen}/>
+    </>
   )
 }
