@@ -15,11 +15,14 @@ interface ModalProps {
   setIsOpen: Dispatch<SetStateAction<boolean>>
 }
 
-export const WhatsAppModal = ({ isOpen, setIsOpen }: ModalProps) => {  
+export const WhatsAppModal = ({ isOpen, setIsOpen }: ModalProps) => {    
   return (
     <>
       { isOpen ? 
-        <div className="flex flex-col gap-24 max-w-2xl p-5 rounded-xl bg-white fixed z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div 
+        className="bg-smoke fixed z-40 w-[100%] h-[100%] flex justify-center items-center" 
+      >
+        <div className="flex flex-col sm:gap-24 gap-14 sm:max-w-2xl w-full sm:p-5 p-6 rounded-xl bg-white z-50">
           <div className="ml-auto text-secondary">
             <IoClose 
               style={{ cursor: "pointer" }} 
@@ -27,28 +30,30 @@ export const WhatsAppModal = ({ isOpen, setIsOpen }: ModalProps) => {
               onClick={() => setIsOpen(prevState => !prevState)}
             />
           </div>
-          <div className="flex flex-col px-12 gap-11">
+          <div className="flex flex-col sm:px-12 sm:gap-11 gap-5">
             <div className="flex flex-col gap-4 text-gray-500">
               <Image src={whatsApp} alt="icone do whatsapp" width={50} height={50}/>
               <div className="flex flex-col gap-2">
-                <h2 className="text-4xl">
+                <h2 className="sm:text-4xl font-bold text-xl">
                   Estamos direcionando você
                   para o Whatsapp.
                 </h2>
-                <span className="text-xl">
-                  Lá nós vamos poder conversar melhor. Até já!
+                <span className="sm:text-xl text-sm">
+                  Lá nós vamos poder conversar melhor. <br/> Até já!
                 </span>
               </div>
             </div>
-            <div className="grid grid-cols-2 mb-10">
+            <div className="grid grid-cols-2 sm:mb-10 max-sm:flex max-sm:flex-col max-sm:gap-7">
               <Input placeholder="Seu nome" />
+              <div className="sm:ml-auto max-sm:self-center"> 
               <Button 
                 text="Ir para o Whatsapp"
                 icon={<FaWhatsapp />}
-                style={{ marginLeft: "auto"}}
               />
+              </div>
             </div>
           </div>
+        </div>
         </div>
         : <></>
       }

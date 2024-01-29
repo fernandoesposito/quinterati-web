@@ -50,7 +50,7 @@ export const Footer = () => {
       <div className="w-full border border-white border-opacity-50 mt-12 mb-8 max-sm:hidden"/>
       <span className="text-white font-normal max-sm:hidden">© 2024 quintera.com.br | Todos os direitos reservados.</span>
     </footer>
-    <div className="sm:hidden w-screen bg-white px-7 py-10 text-center">
+    <div className="sm:hidden w-screen bg-white px-7 pt-10 pb-16 text-center">
       <span className="text-gray-600 font-normal">
         © 2024 quintera.com.br<br/>
         CNPJ: 00.000.000/0001-00<br/>
