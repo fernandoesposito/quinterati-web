@@ -10,7 +10,7 @@ interface ProductCardProps {
 
 export const ProductCard = ({ topic, header, description, alt, src }: ProductCardProps) => {
   return (
-    <div className="flex flex-col p-6 bg-white rounded-lg max-w-80 drop-shadow-md shadow-black-[0.1]">
+    <div className="flex flex-col p-6 bg-white rounded-lg max-w-80 drop-shadow-md shadow-black-[0.1] font-roboto">
       <Image 
         src={src} 
         alt={alt} 

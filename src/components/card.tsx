@@ -13,10 +13,10 @@ export const Card = ({ icon, header, content }: CardProps) => {
         { icon }
       </div>
       <div className="flex sm:flex-col gap-2 max-sm:items-center max-sm:justify-between">
-        <h4 className="text-support font-semibold sm:text-xl text-sm">
+        <h4 className="text-support font-semibold font-inter sm:text-xl text-sm">
           { header }
         </h4>
-        <summary className="list-none font-normal text-support max-sm:hidden">
+        <summary className="list-none font-normal font-roboto text-support max-sm:hidden">
           { content }
         </summary>
         <div className="sm:hidden text-secondary">

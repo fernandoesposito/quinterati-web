@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Image from "next/image"
+
 import { Button } from "./button"
 
 import cookie from "../../public/cookie.svg"
@@ -10,10 +11,12 @@ export const CookiesModal = () => {
   return (
     <>
     { isOpen ? 
-      <div className="bg-black">
-        <div className="w-screen flex px-16 py-14 gap-12 justify-between bg-white">
+      <div 
+      className="bg-smoke fixed z-40 w-[100%] h-[100%] flex justify-center items-center" 
+    >
+        <div className="w-screen flex px-16 py-14 gap-12 justify-between bg-white relative -bottom-72">
           <div className="flex">
-            <Image src={cookie} alt="cookie" />
+            <Image src={cookie} alt="cookie" width={366} height={365}/>
             <div className="max-w-lg flex flex-col justify-end gap-8">
               <Image src={quintera_logo} alt="quintera logo" />
               <div className="flex flex-col gap-4">

@@ -10,15 +10,15 @@ import product_example from "../../../public/product_example.svg";
 
 export default function Produtos() {
   return (
-    <section className="w-screen bg-main px-12 pt-[calc(5rem+32px)] pb-12 flex flex-col items-center">
+    <section className="w-screen bg-main md:px-12 px-4 md:pt-[calc(5rem+32px)] max-md:pt-[calc(3.25rem+1.5rem)] pb-12 flex flex-col items-center">
       <Highlight 
         description="Tudo que você precisa para estar em conformidade com a lei"
         icon={<TbTargetArrow />}
       />
-      <h1 className="font-black text-header text-center text-primary mt-4 mb-10">
+      <h1 className="font-black font-inter md:text-header text-lg md:leading-10 leading-6 max-sm:max-w-64 text-center text-primary md:mt-4 mt-2 md:mb-10 mb-6">
         Selecione o produto que deseja mais informações
       </h1>
-      <ul className="flex gap-6 items-start text-gray-500 font-light text-sm mb-10">
+      <ul className="flex gap-6 items-start text-gray-500 font-roboto font-light text-sm mb-10">
         <li>LGPD</li>
         <li>Cibersegurança</li>
         <li>TI</li>

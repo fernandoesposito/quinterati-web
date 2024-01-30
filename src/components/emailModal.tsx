@@ -24,10 +24,10 @@ export const EmailModal = ({ isOpen, setIsOpen }: EmailModalProps) => {
               </div>
           <Image src={email} alt="imagem personalizada de email" height={353} width={353}/>
           <div className="px-20">
-            <h2 className="font-semibold text-xl text-center text-primary">
+            <h2 className="font-semibold font-inter text-xl text-center text-primary">
               Mensagem enviada com sucesso!
             </h2>
-            <p className="leading-6 text-center text-support px-10">
+            <p className="leading-6 text-center font-roboto text-support px-10">
               Em breve um de nossos especialistas entrará
               em contato para entender a sua demanda.
             </p>

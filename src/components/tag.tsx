@@ -15,7 +15,7 @@ export const Tag: React.FC<CombinedTag> = ({ icon, description, ...rest }: TagPr
         <Image src={icon} alt="globo" className="size-12" />
       </div>
       <div className="py-2 pr-3 rounded-r-md leading-3 max-w-52">
-        <span className="text-[13px] text-gray-500">{description}</span>
+        <span className="text-[13px] text-gray-500 font-lato">{description}</span>
       </div>
     </div>
   )
