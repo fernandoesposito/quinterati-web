@@ -1,6 +1,6 @@
 "use client"
 
-import { Dispatch, SetStateAction } from "react";
+import { ChangeEvent, Dispatch, FormEvent, SetStateAction, useState } from "react";
 import Image from "next/image";
 import { IoClose } from "react-icons/io5";
 import { FaWhatsapp } from "react-icons/fa";
@@ -15,7 +15,21 @@ interface ModalProps {
   setIsOpen: Dispatch<SetStateAction<boolean>>
 }
 
-export const WhatsAppModal = ({ isOpen, setIsOpen }: ModalProps) => {    
+export const WhatsAppModal = ({ isOpen, setIsOpen }: ModalProps) => {  
+  const [username, setUsername] = useState("");  
+
+  const handleUserInput = (e: ChangeEvent<HTMLInputElement>) => {
+    setUsername(e.currentTarget.value);
+  }
+
+  const onRedirect = () => {
+    if(!username.length) return;
+    const phoneNumber = 1126673211
+    const message = `Ola me chamo ${username} e gostaria de obter mais informacoes`
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`
+    window.location.href = whatsappURL
+  }  
+
   return (
     <>
       { isOpen ? 
@@ -34,21 +48,26 @@ export const WhatsAppModal = ({ isOpen, setIsOpen }: ModalProps) => {
             <div className="flex flex-col gap-4 text-gray-500">
               <Image src={whatsApp} alt="icone do whatsapp" width={50} height={50}/>
               <div className="flex flex-col gap-2">
-                <h2 className="sm:text-4xl font-bold text-xl">
+                <h2 className="sm:text-4xl font-bold font-inter text-xl">
                   Estamos direcionando você
                   para o Whatsapp.
                 </h2>
-                <span className="sm:text-xl text-sm">
-                  Lá nós vamos poder conversar melhor. <br/> Até já!
+                <span className="sm:text-xl text-sm font-inter">
+                  Lá nós vamos poder conversar melhor. Até já!
                 </span>
               </div>
             </div>
             <div className="grid grid-cols-2 sm:mb-10 max-sm:flex max-sm:flex-col max-sm:gap-7">
-              <Input placeholder="Seu nome" />
+              <Input 
+                placeholder="Seu nome" 
+                onChange={handleUserInput}
+                value={username}
+              />
               <div className="sm:ml-auto max-sm:self-center"> 
               <Button 
                 text="Ir para o Whatsapp"
                 icon={<FaWhatsapp />}
+                onClick={onRedirect}
               />
               </div>
             </div>
