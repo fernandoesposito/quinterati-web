@@ -6,7 +6,7 @@ import 'react-multi-carousel/lib/styles.css';
 export const MobileCarousel = ({ children }: { children: ReactNode }) => {
   const responsive = {
     mobile: {
-      breakpoint: { max: 640, min: 0 },
+      breakpoint: { max: 768, min: 0 },
       items: 1.2,
     }
   }
