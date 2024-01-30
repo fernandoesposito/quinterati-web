@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
+import { GoArrowLeft } from "react-icons/go";
+
 import { WhatsAppModal } from "./whatsappModal";
 
 import whatsapp from "../../public/wapp.svg";
@@ -17,6 +19,10 @@ export const Navbar = () => {
   return (
     <>
     <nav className="lg:px-[4.5rem] px-7 md:py-6 py-2 md:flex justify-between items-center grid grid-cols-3 w-screen bg-white shadow-lg shadow-black/10 fixed z-20">
+        { pathname === "/inicio" || pathname === "/" ? <></> : 
+        <Link href="/inicio" className="md:hidden text-secondary font-black">
+          <GoArrowLeft size={24}/>
+        </Link>}
       <div className="md:flex md:justify-between items-center max-md:col-span-2 max-md:col-start-2 max-md:col-end-3 max-md:justify-self-center ">
         <Image 
           src={quintera_logo} 
@@ -25,7 +31,7 @@ export const Navbar = () => {
           width={130}
           height={32} 
         />
-        <ul className="md:flex hidden lg:gap-6 md:gap-4 text-sm font-light text-gray-500">
+        <ul className="md:flex hidden lg:gap-6 md:gap-4 text-sm font-light text-gray-500 font-roboto">
           <li>
             <Link 
               href="/inicio"
