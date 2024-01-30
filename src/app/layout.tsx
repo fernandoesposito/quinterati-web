@@ -1,7 +1,7 @@
 "use client"
 
 // import type { Metadata } from "next";
-import { Roboto, Poppins, Lato } from "next/font/google";
+import { Roboto, Poppins, Lato, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
@@ -9,9 +9,27 @@ import { Splash } from "@/components/splash";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
-const roboto = Roboto({ subsets: ["latin"], weight: ["300", "400", "500", "700"]});
-const poppins = Poppins({ subsets: ["latin"], weight: ["300", "400", "500", "700"]});
-const lato = Lato({ weight: ["700"], subsets: ["latin"]})
+const roboto = Roboto({ 
+  subsets: ["latin"], 
+  variable: "--font-roboto",
+  weight: ["300", "400", "500", "700"]},
+);
+const poppins = Poppins({ 
+  subsets: ["latin"], 
+  weight: ["300", "400", "500", "700"],
+  variable: "--font-poppins"
+});
+const lato = Lato({ 
+  weight: ["700"], 
+  subsets: ["latin"],
+  variable: "--font-lato"
+});
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter"
+})
+
+
 
 // export const metadata: Metadata = {
 //   title: "Quinterati",
@@ -39,7 +57,7 @@ export default function RootLayout({
           href="./icon.svg"
         />
       </head>
-      <body className={`${roboto.className} ${poppins.className} ${lato.className}`}>
+      <body className={`${roboto.variable} ${poppins.variable} ${lato.variable} ${inter.variable} overflow-x-hidden`}>
       { isHome && isLoading ? 
         <Splash isLoading={isLoading} setIsLoading={setIsLoading}/> :
         <>
