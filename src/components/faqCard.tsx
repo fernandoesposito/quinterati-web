@@ -22,9 +22,9 @@ export const FaqCard = ({ id, icon, title, selectedId, setSelectedId, setCurrent
         className={`rounded-full size-11 shadow-xl shadow-black-[0.1] flex justify-center items-center text-2xl border-2 border-white ${ selectedId === id ? "bg-secondary text-white" : "bg-main"}`}
         onClick={() => setSelectedId(id)}
       >
-        { icon }
+        <div>{ icon }</div>
       </button>
-      <h3 className="font-semibold text-xl">{title}</h3>
+      <h3 className="font-semibold text-xl font-inter">{title}</h3>
     </div>
   )
 }
