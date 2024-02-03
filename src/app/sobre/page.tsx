@@ -2,11 +2,16 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { FaRegSmile, FaWhatsapp } from "react-icons/fa";
 
+import { supportText } from "./supportText";
+
 import { Button } from "@/components/button";
+import { Loading } from "@/components/loading";
 import { Highlight } from "@/components/highlight";
-import { WhatsAppModal } from "@/components/whatsappModal";
+// import { WhatsAppModal } from "@/components/whatsappModal";
+const WhatsAppModal = dynamic(() => import("../../components/whatsappModal"), { ssr: false, loading: () =>  <Loading />})
 
 import quintera_logo from "../../../public/quintera_logo.svg"
 import quintera_mobile_logo from "../../../public/splash_3.svg";
@@ -23,8 +28,7 @@ export default function Sobre() {
         />
         <div className="flex flex-col items-center md:gap-6 gap-4 md:mt-4 mt-2 md:mb-10 mb-6">
           <h1 className="md:text-header text-lg text-center font-black font-roboto max-w-3xl max-sm:max-w-64 md:leading-[3rem] text-primary">
-            A Quintera é feita de pessoas que querem
-            resolver problemas de pessoas
+            {supportText.title}
           </h1>
           <Button 
             text="Entrar em contato"
@@ -34,22 +38,20 @@ export default function Sobre() {
         </div>
         <div className="flex flex-col md:gap-10 gap-6 pb-4">
           <h2 className="text-center font-roboto text-gray-600 font-bold md:text-2xl text-lg">
-            “Frase que define a Quintera”
+            {supportText.quote}
           </h2>
-          <div className="grid md:grid-cols-2 md:gap-14 max-md:grid-rows-2 gap-6 font-roboto">
-            <p className="text-gray-600 text-sm leading-6"> 
-              &quot; Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+          <div className="grid md:grid-cols-2 md:gap-x-14 md:gap-y-2 max-md:grid-rows-2 gap-2 font-roboto text-gray-600 text-sm leading-6">
+            <p> 
+              {supportText.summary1}
             </p>
-            <p className="text-gray-600 text-sm leading-6">
-              &quot; Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+            <p>
+              {supportText.summary2}
+            </p>
+            <p>
+              {supportText.summary3}
+            </p>
+            <p>
+              {supportText.summary4}
             </p>
           </div>
         </div>
