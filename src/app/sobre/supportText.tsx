@@ -1,0 +1,8 @@
+export const supportText = {
+  title: "A Quintera é uma equipe de excelência que garante qualidade no atendimento e uma experiência positiva em todo o processo, buscando a melhor solução em parceria com o cliente.",
+  quote: `“Inovação além da expectativa, excelência além da entrega”`,
+  summary1: "Em 2014, surge a Quintera TI, uma empresa fundada como resultado da fusão estratégica de profissionais altamente experientes, trazendo mais de 30 anos dedicados a áreas cruciais como Infraestrutura de tecnologia para ambientes de missão crítica, cibersegurança e gestão comercial de negócios. Como resultado desse encontro foram estabelecidas as bases para uma jornada notável na vanguarda da tecnologia da informação.",
+  summary2: "À medida que avançamos para as datas atuais, a Quintera TI ajusta seu foco para atender às demandas contemporâneas do mercado. Especializando-se em projetos customizados e escaláveis, a empresa destaca-se na superação de desafios complexos, incluindo conformidade com a LGPD, cibersegurança e infraestrutura de datacenter. Esta evolução estratégica reflete o comprometimento contínuo da Quintera TI em antecipar e resolver as necessidades emergentes de seus clientes.",
+  summary3: "Definindo-se através da visão e compromisso de seus sócios, a Quintera TI é guiada por uma missão clara: superar as expectativas do cliente, proporcionando as melhores experiências de compra. O compromisso com a qualidade na entrega é a essência que impulsiona a empresa desde sua concepção.",
+  summary4: "A história da Quintera TI é marcada não apenas por seu legado de experiência, mas também pela incessante busca pela inovação e excelência."
+}
