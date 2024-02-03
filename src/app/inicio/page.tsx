@@ -22,8 +22,7 @@ import { Card } from "@/components/card";
 import { Input } from "@/components/input";
 import { Loading } from "@/components/loading";
 //import { Orbit } from "@/components/orbit";
-const Orbit = dynamic(() => import("../../components/orbit"), { ssr: false, loading: () => <Loading />
-})
+const Orbit = dynamic(() => import("../../components/orbit"), { ssr: false, loading: () => <Loading />})
 import { Button } from "@/components/button";
 import { Highlight } from "@/components/highlight";
 // import { CookiesModal } from "@/components/cookiesModal";
