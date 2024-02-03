@@ -3,12 +3,9 @@
 import { useState } from "react";
 
 import { FiLock } from "react-icons/fi";
-import { HiOutlineChip } from "react-icons/hi";
-import { HiOutlineSquare3Stack3D } from "react-icons/hi2";
 import { PiGitFork } from "react-icons/pi";
 import { RiFolderLockLine } from "react-icons/ri";
 import { TbTargetArrow } from "react-icons/tb";
-import { TiDocumentText } from "react-icons/ti";
 
 import { FaqCard } from "@/components/faqCard";
 import { Highlight } from "@/components/highlight";
