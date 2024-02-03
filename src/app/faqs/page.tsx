@@ -33,14 +33,6 @@ export default function Faqs() {
             {/* Desktop */}
             <div className="md:grid md:grid-cols-3 md:gap-x-[4.5rem] md:gap-y-6 flex flex-col max-md:hidden">
               <FaqCard
-                id={0}
-                selectedId={selectedId}
-                setSelectedId={setSelectedId} 
-                icon={<TiDocumentText />}   
-                title="Documentação" 
-                setCurrentTopic={setCurrentTopic}
-              />
-              <FaqCard
                 id={1}
                 selectedId={selectedId}
                 setSelectedId={setSelectedId} 
@@ -56,22 +48,6 @@ export default function Faqs() {
                 title="Cibersegurança" 
                 setCurrentTopic={setCurrentTopic}
               />
-              <FaqCard
-                id={3}
-                selectedId={selectedId}
-                setSelectedId={setSelectedId} 
-                icon={<HiOutlineChip />} 
-                title="TI" 
-                setCurrentTopic={setCurrentTopic}
-              />
-              <FaqCard
-                id={4}
-                selectedId={selectedId}
-                setSelectedId={setSelectedId} 
-                icon={<HiOutlineSquare3Stack3D />} 
-                title="Serviços" 
-                setCurrentTopic={setCurrentTopic}
-              />
               <FaqCard 
                 id={5}
                 icon={<PiGitFork style={{ transform: "rotate(90deg)" }}/>}
@@ -82,7 +58,7 @@ export default function Faqs() {
               />
             </div>
             {/* Mobile */}
-            <div className="w-full flex flex-col gap-2">
+            <div className="w-full flex flex-col gap-2 md:hidden">
               <FaqCardMobile 
                 id={0}
                 selectedId={selectedId}
