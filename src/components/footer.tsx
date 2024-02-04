@@ -18,23 +18,20 @@ export const Footer = () => {
         <ul className="flex font-inter max-md:flex-col justify-between text-gray-200 font-semibold gap-8 md:gap-4 max-md:mr-auto max-md:gap-3 max-md:text-sm">
           <p className="md:hidden text-gray-400 mb-1">Mapa do site</p>
           <li>
-            <Link href="">Benefícios</Link>
-          </li>
-          <li>
-            <Link href="">Serviços</Link>
+            <Link href="/inicio#beneficios">Benefícios</Link>
           </li>
           <li>
             <Link href="/sobre">Sobre nós</Link>
           </li>
           <li>
-            <Link href="">Contato via e-mail</Link>
+            <Link href="/inicio#contato">Contato via e-mail</Link>
           </li>
           <li>
             <Link href="/faqs">FAQ’s</Link>
           </li>
           <p className="sm:hidden text-gray-400 mb-1 mt-10">Legal</p>
           <li>
-            <Link href="/uso">Termos de uso</Link>
+            <Link href="/termos">Termos de uso</Link>
             </li>
           <li>
             <Link href="/privacidade">Política de privacidade</Link>

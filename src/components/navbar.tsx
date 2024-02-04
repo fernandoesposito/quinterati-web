@@ -3,71 +3,74 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 
 import { GoArrowLeft } from "react-icons/go";
 
-import { WhatsAppModal } from "./whatsappModal";
+import { Loading } from "./loading";
+//import { WhatsAppModal } from "./whatsappModal";
+const WhatsAppModal = dynamic(() => import("./whatsappModal"), { ssr: false, loading: () => <Loading />})
 
 import whatsapp from "../../public/wapp.svg";
 import quintera_logo from "../../public/quintera_logo.svg";
 
 export const Navbar = () => {
-  const pathname = usePathname(); 
+  const pathname = usePathname();   
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-    <nav className="lg:px-[4.5rem] px-7 md:py-6 py-2 md:flex justify-between items-center grid grid-cols-3 w-screen bg-white shadow-lg shadow-black/10 fixed z-20">
+    <nav className="lg:px-[4.5rem] px-6 md:py-6 py-2 md:flex justify-between items-center grid grid-cols-3 w-screen bg-white shadow-lg shadow-black/10 fixed z-30">
         { pathname === "/inicio" || pathname === "/" ? <></> : 
         <Link href="/inicio" className="md:hidden text-secondary font-black">
           <GoArrowLeft size={24}/>
         </Link>}
-      <div className="md:flex md:justify-between items-center max-md:col-span-2 max-md:col-start-2 max-md:col-end-3 max-md:justify-self-center ">
+      <div className="md:flex md:justify-between items-center max-md:col-span-2 max-md:col-start-2 max-md:col-end-3 max-md:justify-self-center relative z-30">
         <Image 
           src={quintera_logo} 
           alt="quintera logo"
-          className="md:mr-14" 
+          className="lg:mr-14 md:mr-6" 
           width={130}
           height={32} 
         />
-        <ul className="md:flex hidden lg:gap-6 md:gap-4 text-sm font-light text-gray-500 font-roboto">
+        <ul className="md:flex hidden lg:gap-6 md:gap-3 text-sm font-light text-gray-500 font-roboto">
           <li>
             <Link 
               href="/inicio"
-              className={`link ${pathname === "/inicio" ? "text-primary" : ""}`}
+              className={`link ${pathname === "/inicio" ? "text-primary font-semibold" : ""}`}
             >
               Início
             </Link>
           </li>
           <li>
             <Link 
-              href="#beneficios"
-              className={`link ${pathname === "/beneficios" ? "text-primary" : ""}`}
+              href="/inicio#beneficios"
+              className={`link ${pathname === "/inicio#beneficios" ? "text-primary font-semibold" : ""}`}
             >
               Benefícios
             </Link>
           </li>
           <li>
             <Link 
-              href="/produtos"
-              className={`link ${pathname === "/produtos" ? "text-primary" : ""}`}
+              href="/solucoes"
+              className={`link ${pathname === "/solucoes" ? "text-primary font-semibold" : ""}`}
             >
-              Produtos
+              Soluções
             </Link>
           </li>
           <li>
             <Link 
               href="/sobre"
-              className={`link ${pathname === "/sobre" ? "text-primary" : ""}`}
+              className={`link ${pathname === "/sobre" ? "text-primary font-semibold" : ""}`}
             >
               Sobre nós
             </Link>
           </li>
           <li>
             <Link 
-              href="#contato"
-              className={`link ${pathname === "/contato" ? "text-primary" : ""}`}
+              href="/inicio#contato"
+              className={`link ${pathname === "/inicio#contato" ? "text-primary font-semibold" : ""}`}
               >
                 Contato via e-mail
               </Link>
@@ -75,7 +78,7 @@ export const Navbar = () => {
           <li>
             <Link 
               href="/faqs"
-              className={`link ${pathname === "/faqs" ? "text-primary" : ""}`}
+              className={`link ${pathname === "/faqs" ? "text-primary font-semibold" : ""}`}
               >
                 FAQ’s
               </Link>
@@ -83,7 +86,7 @@ export const Navbar = () => {
         </ul>
       </div>
       <div className="flex gap-3">
-        <div className="md:flex-col hidden">
+        <div className="md:flex-col max-md:hidden text-gray-500 font-poppins">
           <p className="text-end font-light text-[0.625rem]">Contato:</p>
           <h3 className="font-medium text-sm">11 98504-0153</h3>
         </div>
