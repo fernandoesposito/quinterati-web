@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { FiLock } from "react-icons/fi";
 import { PiGitFork } from "react-icons/pi";
@@ -17,6 +17,10 @@ export default function Faqs() {
   const [ selectedId, setSelectedId ] = useState<number | null>(null);
   const [ selectedFaqIndex, setSelectedFaqIndex ] = useState<number | null>(null);
   const [ currentTopic, setCurrentTopic ] = useState<string>("");  
+
+  useEffect(() => {
+    setSelectedFaqIndex(null)
+  }, [currentTopic]);  
 
   return (
     <>
@@ -57,342 +61,28 @@ export default function Faqs() {
             </div>
             {/* Mobile */}
             <div className="w-full flex flex-col gap-2 md:hidden">
-              <FaqCardMobile 
-                id={0}
-                selectedId={selectedId}
-                setSelectedId={setSelectedId} 
-                topic="Documentação" 
-              >
-                {
-                  <div className="max-w-3xl max-md:flex max-md:flex-col max-md:gap-3">
+              { Object.keys(topics).map((topic, index) => (
+                <FaqCardMobile
+                  id={index}
+                  selectedId={selectedId}
+                  setSelectedId={setSelectedId}
+                  topic={topic}
+                  key={index}
+                >{ topics?.[currentTopic]?.map((topic, index) => 
+                  <div 
+                    className="max-w-3xl max-md:flex max-md:flex-col max-md:gap-2" 
+                    key={index}
+                  >
                   <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={0}
-                    question="Como vou acompanhar o desenvolvimento?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
+                    answer={topic.answer}
+                    question={topic.question}
+                    index={index}
                     selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={1}
-                    question="Qual o valor mínimo de investimento em um projeto?"
                     setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
                   />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={2}
-                    question="Qual a diferença entre nativo e web responsivo?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={3}
-                    question="O que é um MVP?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={4}
-                    question="Quais as diferenças entre  low-code, no-code e code?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                </div>
-                }
-              </FaqCardMobile>
-              <FaqCardMobile 
-                id={1}
-                selectedId={selectedId}
-                setSelectedId={setSelectedId} 
-                topic="LGPD" 
-              >
-                {
-                  <div className="max-w-3xl max-md:flex max-md:flex-col max-md:gap-3">
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={0}
-                    question="Como vou acompanhar o desenvolvimento?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={1}
-                    question="Qual o valor mínimo de investimento em um projeto?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={2}
-                    question="Qual a diferença entre nativo e web responsivo?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={3}
-                    question="O que é um MVP?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={4}
-                    question="Quais as diferenças entre  low-code, no-code e code?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                </div>
-                }
-              </FaqCardMobile>
-              <FaqCardMobile 
-                id={2}
-                selectedId={selectedId}
-                setSelectedId={setSelectedId} 
-                topic="Cibersegurança" 
-              >
-                {
-                  <div className="max-w-3xl max-md:flex max-md:flex-col max-md:gap-3">
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={0}
-                    question="Como vou acompanhar o desenvolvimento?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={1}
-                    question="Qual o valor mínimo de investimento em um projeto?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={2}
-                    question="Qual a diferença entre nativo e web responsivo?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={3}
-                    question="O que é um MVP?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={4}
-                    question="Quais as diferenças entre  low-code, no-code e code?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                </div>
-                }
-              </FaqCardMobile>
-              <FaqCardMobile 
-                id={3}
-                selectedId={selectedId}
-                setSelectedId={setSelectedId} 
-                topic="TI" 
-              >
-                {
-                  <div className="max-w-3xl max-md:flex max-md:flex-col max-md:gap-3">
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={0}
-                    question="Como vou acompanhar o desenvolvimento?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={1}
-                    question="Qual o valor mínimo de investimento em um projeto?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={2}
-                    question="Qual a diferença entre nativo e web responsivo?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={3}
-                    question="O que é um MVP?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={4}
-                    question="Quais as diferenças entre  low-code, no-code e code?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                </div>
-                }
-              </FaqCardMobile>
-              <FaqCardMobile 
-                id={4}
-                selectedId={selectedId}
-                setSelectedId={setSelectedId} 
-                topic="Serviços" 
-              >
-                {
-                  <div className="max-w-3xl max-md:flex max-md:flex-col max-md:gap-3">
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={0}
-                    question="Como vou acompanhar o desenvolvimento?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={1}
-                    question="Qual o valor mínimo de investimento em um projeto?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={2}
-                    question="Qual a diferença entre nativo e web responsivo?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={3}
-                    question="O que é um MVP?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={4}
-                    question="Quais as diferenças entre  low-code, no-code e code?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                </div>
-                }
-              </FaqCardMobile>
-              <FaqCardMobile 
-                id={5}
-                selectedId={selectedId}
-                setSelectedId={setSelectedId} 
-                topic="Infraestrutura" 
-              >
-                {
-                  <div className="max-w-3xl max-md:flex max-md:flex-col max-md:gap-3">
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={0}
-                    question="Como vou acompanhar o desenvolvimento?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={1}
-                    question="Qual o valor mínimo de investimento em um projeto?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={2}
-                    question="Qual a diferença entre nativo e web responsivo?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={3}
-                    question="O que é um MVP?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                  <FaqSection 
-                    answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-                    pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-                    para você acompanhar em tempo real a criação do seu produto!"
-                    index={4}
-                    question="Quais as diferenças entre  low-code, no-code e code?"
-                    setSelectedFaqIndex={setSelectedFaqIndex}
-                    selectedFaqIndex={selectedFaqIndex}
-                  />
-                </div>
-                }
-              </FaqCardMobile>
+                  </div>
+                )}</FaqCardMobile> 
+              ))}
             </div>
           </div>
         </div>

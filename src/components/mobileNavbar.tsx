@@ -15,11 +15,11 @@ export const MobileNavbar = () => {
         <FaRegSmile size={24} />
         <p className="font-semibold text-[0.5rem]">Sobre nós</p>
       </Link>
-      <Link href="/produtos" className="flex flex-col items-center text-center gap-1">
+      <Link href="/solucoes" className="flex flex-col items-center text-center gap-1">
         <TbTargetArrow size={24} />
-        <p className="font-semibold text-[0.5rem]">Produtos</p>
+        <p className="font-semibold text-[0.5rem]">Soluções</p>
       </Link>
-      <Link href="/beneficios" className="flex flex-col items-center text-center gap-1">
+      <Link href="/inicio#beneficios" className="flex flex-col items-center text-center gap-1">
         <FaArrowTrendUp size={24} />
         <p className="font-semibold text-[0.5rem]">Benefícios</p>
       </Link>
