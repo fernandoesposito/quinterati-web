@@ -13,7 +13,7 @@ type ExtendedProductCardProps = ProductCardProps & React.HTMLProps<HTMLDivElemen
 
 export const ProductCard: React.FC<ExtendedProductCardProps> = ({ topic, header, description, alt, src, ...rest }: ProductCardProps) => {
   return (
-    <div className="flex flex-col p-6 bg-white rounded-lg max-w-80 drop-shadow-md shadow-black-[0.1] font-roboto" {...rest}>
+    <div className="flex flex-col p-6 bg-white rounded-lg max-w-80 drop-shadow-md shadow-black-[0.1] font-roboto cursor-pointer" {...rest}>
       <div className="h-[232px]">
         <Image 
           src={src} 

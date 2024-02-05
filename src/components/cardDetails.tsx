@@ -16,7 +16,7 @@ export const CardDetails = ({ type, header, children, image }: CardDetailsProps)
       </div>
       <div className="flex flex-col gap-3 font-roboto">
         <p className="text-secondary font-semibold text-xs">{type}</p>
-        <h3 className="text-primary font-semibold text-2xl">{header}</h3>
+        <h3 className="text-primary font-semibold text-2xl max-md:text-lg">{header}</h3>
         { children }
       </div>
     </div>
