@@ -1,7 +1,7 @@
 import Image from "next/image"
 import splash_3 from "../../public/splash_3.svg"
 
-export const Orbit = () => {
+const Orbit = () => {
   return (
     <div className="md:size-[462px] size-[301px] bg-transparent flex flex-col items-center justify-center">
       <Image src={splash_3} alt="" width={30}/>
@@ -63,7 +63,7 @@ export const Orbit = () => {
       <>
         <div className="absolute rounded-full lg:w-[168px] w-[109px] z-10 animate-spin-normal">
           <div className="rounded-full size-4 border border-white bg-planet absolute -translate-x-1/2 lg:left-[164px] left-[108px] lg:bottom-[30px] bottom-0"/>
-          <div className="border border-white rounded-3xl bg-main px-4 w-fit relative lg:bottom-[0px] top-[30px] lg:left-[140px] left-[68px] animate-rotation-balance">
+          <div className="border border-white rounded-3xl bg-main px-4 w-fit relative lg:top-[6px] top-[30px] lg:left-[140px] left-[68px] animate-rotation-balance">
             <div className="sticky animate-rotateY">TI</div>
           </div>
         </div>
@@ -77,3 +77,5 @@ export const Orbit = () => {
     </div>
   )
 }
+
+export default Orbit

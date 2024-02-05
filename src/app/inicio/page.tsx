@@ -10,13 +10,11 @@ import { FaArrowTrendUp } from "react-icons/fa6";
 import { GoCheckCircle } from "react-icons/go";
 import { FaWhatsapp } from "react-icons/fa";
 import { BsTrophy } from "react-icons/bs";
-import { TiDocumentText } from "react-icons/ti";
 import { RiFolderLockLine } from "react-icons/ri";
 import { FiLock, FiMail } from "react-icons/fi";
-import { HiOutlineChip } from "react-icons/hi";
-import { HiOutlineSquare3Stack3D } from "react-icons/hi2";
 import { PiGitFork } from "react-icons/pi";
 
+import { supportText } from "./supportText";
 // import { Tag } from "@/components/tag";
 import { Card } from "@/components/card";
 import { Input } from "@/components/input";
@@ -34,7 +32,7 @@ const WhatsAppModal = dynamic(() => import("../../components/whatsappModal"), { 
 import email from "../../../public/email.svg";
 import brazil from "../../../public/brazil.svg";
 import quintera_logo from "../../../public/quintera_logo.svg";
-import { supportText } from "./supportText";
+import quintera_bg from "../../../public/quintera_bg.svg";
 
 export default function Intro() {
   const [isOpen, setIsOpen] = useState(false);  
@@ -44,22 +42,23 @@ export default function Intro() {
       {/* <CookiesModal /> */}
       { isOpen ? <WhatsAppModal isOpen={isOpen} setIsOpen={setIsOpen}/> : <></>}
       <MobileNavbar />
-      <section className="w-screen bg-main lg:px-[4.5rem] px-6 md:pt-[calc(5rem+78px)] pt-[calc(50px+1.5rem)] flex flex-col md:pb-28">
+      <section className="w-screen bg-main lg:px-[4.5rem] px-6 md:pt-[calc(5rem+78px)] pt-[calc(50px+1.5rem)] flex flex-col md:pb-28 sm:pb-10">
+        <Image src={quintera_bg} alt="" className="absolute top-0 left-0 z-20 max-md:hidden"/>
         <div className="md:grid md:grid-cols-2 gap-12 place-self-center"> {/*review gap-12 -> lower it?*/}
           {/* textos */}
           <div className="max-w-xl flex flex-col gap-6 place-items-center md:place-items-start">
-            <Highlight 
+            {/* <Highlight 
               icon={<TbTargetArrow />}
               description="Não existe meia conformidade com a lei"
-            />
+            /> */}
             <div className="flex justify-center my-6 md:hidden">
               <Orbit />
             </div>
             <div className="w-fit flex flex-col gap-2 md:gap-6 place-items-center md:place-items-start">
-              <h1 className="text-secondary font-roboto md:font-black font-bold md:text-left text-center md:text-header max-md:max-w-64 text-lg md:leading-[3rem] leading-6">
+              <h1 className="text-secondary font-roboto md:font-black font-bold md:text-left text-center md:text-header max-sm:max-w-64 text-lg md:leading-[3rem] leading-6 relative z-20">
                 {supportText.home.title}
               </h1>
-              <h2 className="md:text-subtitle text-gray-500 font-normal font-inter text-md md:text-left text-center leading-4 md:max-w-none max-w-72">
+              <h2 className="md:text-subtitle text-gray-500 font-normal font-inter text-md md:text-left text-center leading-4 max-sm:max-w-72">
                 {supportText.home.subtitle}
               </h2>
             </div>
@@ -93,18 +92,14 @@ export default function Intro() {
             description={supportText.benefits.highlight}
           />
         </div>
-        <h2 className="md:font-black font-bold font-roboto md:text-header md:leading-10 text-lg text-center md:max-w-none max-w-52 text-primary">
+        <h2 className="md:font-black font-bold font-roboto md:text-header md:leading-10 text-lg text-center max-sm:max-w-52 text-primary">
           {supportText.benefits.title}
         </h2>
         <div className="md:hidden max-w-64 overflow-visible flex flex-col gap-2 mb-[calc(0.5rem+1rem)]">
           <div className="flex justify-center gap-2">
-            <Highlight description="TI" />
-            <Highlight description="Serviços" />
-            <Highlight description="Infraestrutura" />
-          </div>
-          <div className="flex gap-2 justify-center">
             <Highlight description="LGPD" />
-            <Highlight description="Cyber segurança" />
+            <Highlight description="Infraestrutura" />
+            <Highlight description="Cibersegurança" />
           </div>
         </div>
         <div className="md:grid md:grid-cols-2 md:gap-[4.5rem] flex flex-col gap-6">
@@ -153,7 +148,7 @@ export default function Intro() {
             bgColor="blue"
           />
           <div className="flex flex-col gap-4 max-sm:gap-2 justify-center items-center">
-            <h3 className="font-black font-roboto text-header text-center text-support max-w-72 md:max-w-none leading-9">
+            <h3 className="font-black font-roboto text-header text-center text-support max-w-72 md:max-w-none leading-[3rem]">
               {supportText.box.title}
             </h3>
             <summary className="list-none font-inter font-medium text-center text-md md:max-w-3xl text-support leading-5 max-w-80">
@@ -167,7 +162,7 @@ export default function Intro() {
             description={supportText.contact.highligh}
             icon={<TbTargetArrow />}
           />
-        <h3 className="font-black font-roboto md:text-header text-lg leading-6 md:leading-10 text-center text-primary max-md:max-w-64 md:mb-12 md:mt-4 mt-2 mb-3">
+        <h3 className="font-black font-roboto md:text-header text-lg leading-6 md:leading-10 text-center text-primary max-sm:max-w-64 md:mb-12 md:mt-4 mt-2 mb-3">
           {supportText.contact.title}
         </h3>
         <div className="lg:grid lg:grid-cols-2 lg:gap-9 flex flex-col-reverse ">
@@ -215,10 +210,10 @@ export default function Intro() {
           description="Sessão de ajuda por soluções"
           icon={<TbTargetArrow />}
         />
-        <h3 className="font-black font-roboto md:text-header text-lg max-md:max-w-64 leading-6 md:leading-10 max-md:mt-2 max-md:mb-6 text-center text-primary">
+        <h3 className="font-black font-roboto md:text-header text-lg max-sm:max-w-64 leading-6 md:leading-10 max-md:mt-2 max-md:mb-6 text-center text-primary">
           {supportText.faq.title}
         </h3>
-        <div className="md:grid md:grid-cols-3 md:gap-x-16 md:gap-y-8 flex flex-col max-md:w-full max-md:gap-2">
+        <div className="sm:grid sm:grid-cols-3 md:gap-x-16 md:gap-y-8 flex flex-col max-sm:w-full max-md:gap-2">
           <Card 
             header={supportText.faq.topics[0].header}
             content={supportText.faq.topics[0].content}

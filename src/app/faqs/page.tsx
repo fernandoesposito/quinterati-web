@@ -11,11 +11,12 @@ import { FaqCard } from "@/components/faqCard";
 import { Highlight } from "@/components/highlight";
 import { FaqSection } from "@/components/faqSection";
 import { FaqCardMobile } from "@/components/faqCardMobile";
+import { topics } from "./supportText";
 
 export default function Faqs() {  
   const [ selectedId, setSelectedId ] = useState<number | null>(null);
   const [ selectedFaqIndex, setSelectedFaqIndex ] = useState<number | null>(null);
-  const [ currentTopic, setCurrentTopic ] = useState<string>("");
+  const [ currentTopic, setCurrentTopic ] = useState<string>("");  
 
   return (
     <>
@@ -30,7 +31,7 @@ export default function Faqs() {
             {/* Desktop */}
             <div className="md:grid md:grid-cols-3 md:gap-x-[4.5rem] md:gap-y-6 flex flex-col max-md:hidden">
               <FaqCard
-                id={1}
+                id={0}
                 selectedId={selectedId}
                 setSelectedId={setSelectedId} 
                 icon={<RiFolderLockLine />} 
@@ -38,7 +39,7 @@ export default function Faqs() {
                 setCurrentTopic={setCurrentTopic}
               />
               <FaqCard 
-                id={2}
+                id={1}
                 selectedId={selectedId}
                 setSelectedId={setSelectedId}
                 icon={<FiLock />} 
@@ -46,7 +47,7 @@ export default function Faqs() {
                 setCurrentTopic={setCurrentTopic}
               />
               <FaqCard 
-                id={5}
+                id={2}
                 icon={<PiGitFork style={{ transform: "rotate(90deg)" }}/>}
                 selectedId={selectedId}
                 setSelectedId={setSelectedId} 
@@ -401,51 +402,17 @@ export default function Faqs() {
             <span className="text-header font-roboto front-black text-primary">&nbsp; {currentTopic}</span>
           </h3>
           <div className="max-w-3xl max-md:flex-col max-md:gap-3 max-md:hidden">
-            <FaqSection 
-              answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-              pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-              para você acompanhar em tempo real a criação do seu produto!"
-              index={0}
-              question="Como vou acompanhar o desenvolvimento?"
-              setSelectedFaqIndex={setSelectedFaqIndex}
-              selectedFaqIndex={selectedFaqIndex}
-            />
-            <FaqSection 
-              answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-              pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-              para você acompanhar em tempo real a criação do seu produto!"
-              index={1}
-              question="Qual o valor mínimo de investimento em um projeto?"
-              setSelectedFaqIndex={setSelectedFaqIndex}
-              selectedFaqIndex={selectedFaqIndex}
-            />
-            <FaqSection 
-              answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-              pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-              para você acompanhar em tempo real a criação do seu produto!"
-              index={2}
-              question="Qual a diferença entre nativo e web responsivo?"
-              setSelectedFaqIndex={setSelectedFaqIndex}
-              selectedFaqIndex={selectedFaqIndex}
-            />
-            <FaqSection 
-              answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-              pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-              para você acompanhar em tempo real a criação do seu produto!"
-              index={3}
-              question="O que é um MVP?"
-              setSelectedFaqIndex={setSelectedFaqIndex}
-              selectedFaqIndex={selectedFaqIndex}
-            />
-            <FaqSection 
-              answer="Nós temos um gerente dedicado em cada projeto. Você terá acesso a todas as fases de desenvolvimento
-              pelo whatsapp, relatórios, reuniões e protótipos. Todas as plataformas tem acesso livre e a qualquer hora
-              para você acompanhar em tempo real a criação do seu produto!"
-              index={4}
-              question="Quais as diferenças entre  low-code, no-code e code?"
-              setSelectedFaqIndex={setSelectedFaqIndex}
-              selectedFaqIndex={selectedFaqIndex}
-            />
+            { topics?.[currentTopic]?.map((topic, index) => 
+              <FaqSection 
+                answer={topic.answer}
+                question={topic.question}
+                index={index}
+                selectedFaqIndex={selectedFaqIndex}
+                setSelectedFaqIndex={setSelectedFaqIndex}
+                key={index}
+              />
+            )}
+            
           </div>
         </div> :
         <></>

@@ -1,7 +1,13 @@
 "use client"
 
-import { ChangeEvent, Dispatch, FormEvent, SetStateAction, useState } from "react";
+import { 
+  useState,
+  Dispatch, 
+  ChangeEvent, 
+  SetStateAction,  
+} from "react";
 import Image from "next/image";
+
 import { IoClose } from "react-icons/io5";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -15,7 +21,7 @@ interface ModalProps {
   setIsOpen: Dispatch<SetStateAction<boolean>>
 }
 
-export const WhatsAppModal = ({ isOpen, setIsOpen }: ModalProps) => {  
+const WhatsAppModal = ({ isOpen, setIsOpen }: ModalProps) => {  
   const [username, setUsername] = useState("");  
 
   const handleUserInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -75,9 +81,9 @@ export const WhatsAppModal = ({ isOpen, setIsOpen }: ModalProps) => {
         </div>
         </div>
         : <></>
-      }
-      
-    </>
-    
+      } 
+    </>  
   )
 }
+
+export default WhatsAppModal
