@@ -38,9 +38,6 @@ export default function Solutions() {
     )
   }
 
-    
-  
-
   return (
     <section className="w-screen bg-main md:px-12 px-4 md:pt-[calc(5rem+32px)] max-md:pt-[calc(3.25rem+1.5rem)] pb-12 flex flex-col items-center">
       <Highlight 
