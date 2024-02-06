@@ -90,7 +90,7 @@ export default function Intro() {
             <h3 className="font-black font-roboto text-header text-center text-support max-w-72 md:max-w-none leading-[3rem]">
               {supportText.box.title}
             </h3>
-            <summary className="list-none font-inter font-medium text-center text-md md:max-w-3xl text-support leading-5 max-w-80">
+            <summary className="list-none font-inter font-medium text-center text-md md:max-w-3xl text-support leading-5 max-w-80 md:px-10">
               {supportText.box.summary}
             </summary>
           </div>

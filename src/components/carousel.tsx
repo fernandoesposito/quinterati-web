@@ -13,7 +13,7 @@ export const MobileCarousel = ({ children }: { children: ReactNode }) => {
     <Carousel 
       responsive={responsive}
       arrows={false}
-      ssr={true}
+      ssr={false}
       showDots={true}      
     >
       {children}

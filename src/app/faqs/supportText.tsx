@@ -37,26 +37,6 @@ export const topics: topicsProps = {
     }
 
   ],
-  Infraestrutura: [
-    {
-      question: "Porque devo considerar um datacenter próprio com tanta oferta de nuvem?",
-      answer: <p>A decisão de investir ou não em um datacenter próprio está totalmente relacionada a necessidade e resultado esperado. Questões como segurança nacional e prevenção de vazamento de dados, restrição de acesso físico, resposta à legislações específicas, disponibilidade, latência, performance ou até mesmo um alto volume de dados trafegados formatam a necessidade de um ambiente privado.</p>
-    }, 
-    {
-      question: "Há uma série de opções no mercado, o que devo considerar?",
-      answer: <p>A LGPD garante proteção a todos os dados cujos titulares são pessoas naturais, estejam eles em formato físico ou digital. Assim, a LGPD não alcança os dados titularizados por pessoas jurídicas – os quais não são considerados dados pessoais para os efeitos da Lei.</p>
-    },
-    {
-      question: "O que as empresas e o setor público precisam fazer para se adequar?",
-      answer: <div>Como todo mercado, o segmento de construção de datacenter expandiu bastante, com isso produtos dos mais diversos foram disponibilizados. Ao longo de todo o tempo, quem de fato se sustentou no mercado, são fabricantes que trabalham com produtos renomados e diferenciados. Nesse sentido podemos resumir o mercado hoje com as seguintes opções: 
-        <ul className="list-disc pl-4">
-        <li>Para até 03 Racks pode-se adotar o enclausuramento dentro do próprio rack, com climatização, no-break, detecção precoce e combate a incêndio e proteção de acesso integrados</li> 
-        <li>Projetos acima de 03 racks pode-se adotar o enclausuramento modular, simulando um container marítimo, com climatização de precisão, no-break, detecção precoce e combate a incêndio, proteção de acesso.</li>
-        <li>Projetos acima de 04 racks pode-se adotar o conceito de sala segura ou sala cofre. O que diverge entre esses dois modelos é a capacidade da Sala Cofre em obter certificação que inclui auditoria e avaliação periódica do processo produtivo, desde o projeto, fabricação, implementação até manutenção da solução por uma entidade independente (acreditada pelo Inmetro).</li>
-        </ul>
-        </div>
-    }
-  ],
   Cibersegurança: [
     {
       question: "O que são ataques cibernéticos?",
@@ -78,8 +58,27 @@ export const topics: topicsProps = {
       </ul>
       </div>
     }
-  ]
-
+  ],
+  Infraestrutura: [
+    {
+      question: "Porque devo considerar um datacenter próprio com tanta oferta de nuvem?",
+      answer: <p>A decisão de investir ou não em um datacenter próprio está totalmente relacionada a necessidade e resultado esperado. Questões como segurança nacional e prevenção de vazamento de dados, restrição de acesso físico, resposta à legislações específicas, disponibilidade, latência, performance ou até mesmo um alto volume de dados trafegados formatam a necessidade de um ambiente privado.</p>
+    }, 
+    {
+      question: "Há uma série de opções no mercado, o que devo considerar?",
+      answer: <p>A LGPD garante proteção a todos os dados cujos titulares são pessoas naturais, estejam eles em formato físico ou digital. Assim, a LGPD não alcança os dados titularizados por pessoas jurídicas – os quais não são considerados dados pessoais para os efeitos da Lei.</p>
+    },
+    {
+      question: "O que as empresas e o setor público precisam fazer para se adequar?",
+      answer: <div>Como todo mercado, o segmento de construção de datacenter expandiu bastante, com isso produtos dos mais diversos foram disponibilizados. Ao longo de todo o tempo, quem de fato se sustentou no mercado, são fabricantes que trabalham com produtos renomados e diferenciados. Nesse sentido podemos resumir o mercado hoje com as seguintes opções: 
+        <ul className="list-disc pl-4">
+        <li>Para até 03 Racks pode-se adotar o enclausuramento dentro do próprio rack, com climatização, no-break, detecção precoce e combate a incêndio e proteção de acesso integrados</li> 
+        <li>Projetos acima de 03 racks pode-se adotar o enclausuramento modular, simulando um container marítimo, com climatização de precisão, no-break, detecção precoce e combate a incêndio, proteção de acesso.</li>
+        <li>Projetos acima de 04 racks pode-se adotar o conceito de sala segura ou sala cofre. O que diverge entre esses dois modelos é a capacidade da Sala Cofre em obter certificação que inclui auditoria e avaliação periódica do processo produtivo, desde o projeto, fabricação, implementação até manutenção da solução por uma entidade independente (acreditada pelo Inmetro).</li>
+        </ul>
+        </div>
+    }
+  ],
 }
 
 

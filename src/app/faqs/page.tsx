@@ -16,7 +16,7 @@ import { topics } from "./supportText";
 export default function Faqs() {  
   const [ selectedId, setSelectedId ] = useState<number | null>(null);
   const [ selectedFaqIndex, setSelectedFaqIndex ] = useState<number | null>(null);
-  const [ currentTopic, setCurrentTopic ] = useState<string>("");  
+  const [ currentTopic, setCurrentTopic ] = useState<string>("");   
 
   useEffect(() => {
     setSelectedFaqIndex(null)
@@ -63,35 +63,39 @@ export default function Faqs() {
             <div className="w-full flex flex-col gap-2 md:hidden">
               { Object.keys(topics).map((topic, index) => (
                 <FaqCardMobile
-                  id={index}
-                  selectedId={selectedId}
-                  setSelectedId={setSelectedId}
+                  key={index} 
+                  index={index}
                   topic={topic}
-                  key={index}
-                >{ topics?.[currentTopic]?.map((topic, index) => 
+                  setSelectedId={setSelectedFaqIndex}
+                  activeTopicId={selectedId}
+                  setActiveTopicId={setSelectedId}
+                >
                   <div 
                     className="max-w-3xl max-md:flex max-md:flex-col max-md:gap-2" 
                     key={index}
                   >
+                  { topics?.[currentTopic]?.map((topic, index) => 
                   <FaqSection 
+                    key={index}
                     answer={topic.answer}
                     question={topic.question}
                     index={index}
                     selectedFaqIndex={selectedFaqIndex}
                     setSelectedFaqIndex={setSelectedFaqIndex}
                   />
+                  )}
                   </div>
-                )}</FaqCardMobile> 
+                </FaqCardMobile> 
               ))}
             </div>
           </div>
         </div>
         { currentTopic ? 
-        <div className="flex flex-col gap-6 items-center">
-          <h3 className="text-header font-black font-roboto text-center text-support max-md:hidden">Resultados para: 
+        <div className="flex flex-col gap-6 items-center max-md:hidden">
+          <h3 className="text-header font-black font-roboto text-center text-support">Resultados para: 
             <span className="text-header font-roboto front-black text-primary">&nbsp; {currentTopic}</span>
           </h3>
-          <div className="max-w-3xl max-md:flex-col max-md:gap-3 max-md:hidden">
+          <div className="max-w-3xl max-md:flex-col max-md:gap-3">
             { topics?.[currentTopic]?.map((topic, index) => 
               <FaqSection 
                 answer={topic.answer}

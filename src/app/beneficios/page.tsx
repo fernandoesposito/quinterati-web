@@ -10,6 +10,7 @@ import { useModal } from "@/context/useModal";
 
 import { Button } from "@/components/button";
 import { Highlight } from "@/components/highlight";
+import { BenefitsCarousel } from "@/components/benefitsCarousel";
 
 import { supportText } from "./supportText";
 
@@ -18,7 +19,8 @@ import quintera_logo from "../../../public/quintera_logo.svg"
 
 export default function Benefits() {
   const { isOpen, setIsOpen } = useModal();
-  const path = usePathname()
+  const path = usePathname();
+
   return (
     <section id="beneficios" className={`w-screen bg-main lg:px-44 px-6 md:pb-16 pb-7 flex flex-col md:gap-8 gap-2 items-center justify-center ${path === "/beneficios" ? "md:pt-[calc(5rem+78px)] pt-[calc(50px+1.5rem)]" : ""}`}>
       <div className="flex items-center justify-center">
@@ -74,6 +76,7 @@ export default function Benefits() {
           </div> */}
         </div>
       </div>
+      <BenefitsCarousel />
     </section>
   )
 }
