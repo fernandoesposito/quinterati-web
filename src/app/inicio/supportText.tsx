@@ -3,18 +3,6 @@ export const supportText = {
     title: "Projetos customizados e escaláveis para superar desafios como, conformidade com a LGPD, Cibersegurança e Infraestrutura de Datacenter",
     subtitle: "Nossa missão é superar as expectativas do cliente com as melhores experiências de compra e ser reconhecido pelo compromisso e qualidade da entrega."
   },
-  benefits: {
-    highlight: "Benefícios exclusivos",
-    title: "Por que a Quintera se destaca no mercado?",
-    summary: "Nós enxergamos a necessidade do cliente e apoiando na melhor estratégia",
-    topics: [
-      "Análise consultiva",
-      "Soluções sob medida",
-      "Projetos End-to-End",
-      "Continuidade e Melhoria dos processos",
-      "Presença nacional",
-    ]
-  },
   box: {
     hightlight: "Adequação, controle, gestão e compliance com a LGPD",
     title: "Única, simples e eficiente",

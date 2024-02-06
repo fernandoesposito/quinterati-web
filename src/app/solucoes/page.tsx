@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { TbTargetArrow } from "react-icons/tb";
 
+import { useModal } from "@/context/useModal";
+
 import { CardProps, cardsDescription, topics } from "./supportText";
 
 import { Button } from "@/components/button";
@@ -16,6 +18,7 @@ import { CarouselCard } from "@/components/carouselCard";
 import { FaqCardMobile } from "@/components/faqCardMobile";
 
 export default function Solutions() {
+  const { isOpen, setIsOpen } = useModal();
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [activeTopicId, setActiveTopicId] = useState<number | null>(null);  
 
@@ -114,6 +117,7 @@ export default function Solutions() {
         <Button 
           text="Entrar em contato"
           icon={<FaWhatsapp/>}
+          onClick={() => setIsOpen(prevState => !prevState)}
         />
       </div>
     </section>

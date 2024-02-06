@@ -1,8 +1,8 @@
+import Link from "next/link";
 import { BiHome } from "react-icons/bi";
 import { FaRegSmile } from "react-icons/fa";
 import { TbTargetArrow } from "react-icons/tb";
 import { FaArrowTrendUp } from "react-icons/fa6";
-import Link from "next/link";
 
 export const MobileNavbar = () => {
   return (
@@ -19,7 +19,7 @@ export const MobileNavbar = () => {
         <TbTargetArrow size={24} />
         <p className="font-semibold text-[0.5rem]">Soluções</p>
       </Link>
-      <Link href="/inicio#beneficios" className="flex flex-col items-center text-center gap-1">
+      <Link href="/beneficios" className="flex flex-col items-center text-center gap-1">
         <FaArrowTrendUp size={24} />
         <p className="font-semibold text-[0.5rem]">Benefícios</p>
       </Link>

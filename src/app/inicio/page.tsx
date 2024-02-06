@@ -1,18 +1,17 @@
 "use client"
 
-import { useState } from "react";
+import { useRef } from "react";
 
 import Image from "next/image";
 import dynamic from "next/dynamic";
 
 import { TbTargetArrow } from "react-icons/tb";
-import { FaArrowTrendUp } from "react-icons/fa6";
-import { GoCheckCircle } from "react-icons/go";
-import { FaWhatsapp } from "react-icons/fa";
 import { BsTrophy } from "react-icons/bs";
 import { RiFolderLockLine } from "react-icons/ri";
 import { FiLock, FiMail } from "react-icons/fi";
 import { PiGitFork } from "react-icons/pi";
+
+import Benefits from "../beneficios/page";
 
 import { supportText } from "./supportText";
 // import { Tag } from "@/components/tag";
@@ -25,22 +24,16 @@ import { Button } from "@/components/button";
 import { Highlight } from "@/components/highlight";
 // import { CookiesModal } from "@/components/cookiesModal";
 import { MobileNavbar } from "@/components/mobileNavbar";
-//import { WhatsAppModal } from "@/components/whatsappModal";
-const WhatsAppModal = dynamic(() => import("../../components/whatsappModal"), { ssr: false, loading: () =>  <Loading />})
 
 // import globe from "../../../public/globe.svg";
 import email from "../../../public/email.svg";
-import brazil from "../../../public/brazil.svg";
-import quintera_logo from "../../../public/quintera_logo.svg";
 import quintera_bg from "../../../public/quintera_bg.svg";
 
 export default function Intro() {
-  const [isOpen, setIsOpen] = useState(false);  
+  const emailRef = useRef(null);
 
   return (
     <>
-      {/* <CookiesModal /> */}
-      { isOpen ? <WhatsAppModal isOpen={isOpen} setIsOpen={setIsOpen}/> : <></>}
       <MobileNavbar />
       <section className="w-screen bg-main lg:px-[4.5rem] px-6 md:pt-[calc(5rem+78px)] pt-[calc(50px+1.5rem)] flex flex-col md:pb-28 sm:pb-10">
         <Image src={quintera_bg} alt="" className="absolute top-0 left-0 z-20 max-md:hidden"/>
@@ -85,61 +78,7 @@ export default function Intro() {
           </h4>
         </div> */}
       </section>
-      <section id="beneficios" className="w-screen bg-main lg:px-44 px-6 md:pb-16 pb-7 flex flex-col md:gap-8 gap-2 items-center justify-center">
-        <div className="flex items-center justify-center">
-          <Highlight 
-            icon={<FaArrowTrendUp />}
-            description={supportText.benefits.highlight}
-          />
-        </div>
-        <h2 className="md:font-black font-bold font-roboto md:text-header md:leading-10 text-lg text-center max-sm:max-w-52 text-primary">
-          {supportText.benefits.title}
-        </h2>
-        <div className="md:hidden max-w-64 overflow-visible flex flex-col gap-2 mb-[calc(0.5rem+1rem)]">
-          <div className="flex justify-center gap-2">
-            <Highlight description="LGPD" />
-            <Highlight description="Infraestrutura" />
-            <Highlight description="Cibersegurança" />
-          </div>
-        </div>
-        <div className="md:grid md:grid-cols-2 md:gap-[4.5rem] flex flex-col gap-6">
-          <div className="md:w-96 p-7 md:px-10 md:py-7 flex flex-col max-sm:items-center rounded-2xl border border-gray-300">
-            <Image src={quintera_logo} alt="quinterati logo"/>
-            <summary className="list-none md:mt-3 mt-4 md:mb-4 mb-8 text-center md:text-left text-gray-500 font-inter font-medium text-md leading-5">
-             {supportText.benefits.summary}
-            </summary>
-            <dl className="flex flex-col gap-2 text-gray-500 font-inter font-medium text-md mr-auto">
-              {supportText.benefits.topics.map((topic, index) => (
-                <dt className="flex gap-1" key={index}>
-                  <GoCheckCircle size={24} color="#001E3B"/>
-                  <span>{topic}</span>
-              </dt>
-              ))}
-            </dl>
-            <div className="mt-5">
-              <Button 
-                text="Entrar em contato"
-                icon={<FaWhatsapp />}
-                onClick={() => setIsOpen(prevState => !prevState)}
-              />
-            </div>
-          </div>
-          <div className="relative flex flex-col items-center"> 
-            <Image src={brazil} alt="mapa do Brasil"/>
-            <div className="md:absolute lg:-right-20 lg:bottom-5 md:bottom-2 mt-6">
-              
-            </div>
-            {/* <div className="absolute lg:-right-24 lg:bottom-20 bottom-1/2">
-              <Tag 
-                icon={globe}
-                description="Em todo o Brasil você
-                encontra a excelênica
-                da Quintera!"
-              />
-            </div> */}
-          </div>
-        </div>
-      </section>
+      <Benefits />
       <section className="w-screen md:bg-white bg-gray-700 md:px-28 px-6 md:pt-12 py-8 md:pb-4 flex flex-col gap-12 items-center">
         <div className="flex flex-col items-center justify-center gap-4 md:py-6 md:bg-main md:border w-full md:border-gray-300 md:rounded-2xl md:shadow-md md:shadow-black-[.1]">
           <Highlight 
@@ -166,7 +105,7 @@ export default function Intro() {
           {supportText.contact.title}
         </h3>
         <div className="lg:grid lg:grid-cols-2 lg:gap-9 flex flex-col-reverse ">
-          <form className="flex flex-col gap-4 px-3">
+          <form className="flex flex-col gap-4 px-3" ref={emailRef.current}>
             <Input 
               label="Nome"
               placeholder="Qual é o seu nome?"
@@ -203,7 +142,6 @@ export default function Intro() {
           </form>
           <Image src={email} alt="email" />
         </div>
-        
       </section>
       <section className="w-screen bg-white md:pb-10 py-10 lg:px-36 px-11 flex flex-col items-center md:gap-10">
         <Highlight 

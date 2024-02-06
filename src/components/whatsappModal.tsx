@@ -11,6 +11,8 @@ import Image from "next/image";
 import { IoClose } from "react-icons/io5";
 import { FaWhatsapp } from "react-icons/fa";
 
+import { useModal } from "@/context/useModal";
+
 import { Input } from "./input";
 import { Button } from "./button";
 
@@ -21,7 +23,8 @@ interface ModalProps {
   setIsOpen: Dispatch<SetStateAction<boolean>>
 }
 
-const WhatsAppModal = ({ isOpen, setIsOpen }: ModalProps) => {  
+const WhatsAppModal = () => { 
+  const { isOpen, setIsOpen } = useModal(); 
   const [username, setUsername] = useState("");  
 
   const handleUserInput = (e: ChangeEvent<HTMLInputElement>) => {

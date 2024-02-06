@@ -8,6 +8,8 @@ import { Footer } from "@/components/footer";
 import { Splash } from "@/components/splash";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { ModalProvider } from "@/context/useModal";
+import WhatsAppModal from "@/components/whatsappModal";
 
 const roboto = Roboto({ 
   subsets: ["latin"], 
@@ -61,9 +63,12 @@ export default function RootLayout({
       { isHome && isLoading ? 
         <Splash isLoading={isLoading} setIsLoading={setIsLoading}/> :
         <>
+        <ModalProvider>
+          <WhatsAppModal />
           <Navbar />
             {children}
           <Footer />
+        </ModalProvider>
         </>
       }
       </body>

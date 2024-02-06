@@ -1,26 +1,21 @@
 "use client"
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 
 import { GoArrowLeft } from "react-icons/go";
+import { useModal } from "@/context/useModal";
 
-import { Loading } from "./loading";
-//import { WhatsAppModal } from "./whatsappModal";
-const WhatsAppModal = dynamic(() => import("./whatsappModal"), { ssr: false, loading: () => <Loading />})
 
 import whatsapp from "../../public/wapp.svg";
 import quintera_logo from "../../public/quintera_logo.svg";
 
 export const Navbar = () => {
   const pathname = usePathname();   
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, setIsOpen } = useModal();    
 
   return (
-    <>
     <nav className="lg:px-[4.5rem] px-6 md:py-6 py-2 md:flex justify-between items-center grid grid-cols-3 w-screen bg-white shadow-lg shadow-black/10 fixed z-30">
         { pathname === "/inicio" || pathname === "/" ? <></> : 
         <Link href="/inicio" className="md:hidden text-secondary font-black">
@@ -45,8 +40,8 @@ export const Navbar = () => {
           </li>
           <li>
             <Link 
-              href="/inicio#beneficios"
-              className={`link ${pathname === "/inicio#beneficios" ? "text-primary font-semibold" : ""}`}
+              href="/beneficios"
+              className={`link ${pathname === "/beneficios" ? "text-primary font-semibold" : ""}`}
             >
               Benefícios
             </Link>
@@ -100,7 +95,5 @@ export const Navbar = () => {
         />
       </div>
     </nav>
-      <WhatsAppModal isOpen={isOpen} setIsOpen={setIsOpen}/>
-    </>
   )
 }
