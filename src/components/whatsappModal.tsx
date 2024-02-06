@@ -1,11 +1,7 @@
 "use client"
 
 import { 
-  useState,
-  Dispatch, 
-  ChangeEvent, 
-  SetStateAction,  
-} from "react";
+  useState, useRef } from "react";
 import Image from "next/image";
 
 import { IoClose } from "react-icons/io5";
@@ -18,23 +14,18 @@ import { Button } from "./button";
 
 import whatsApp from "../../public/wapp.svg";
 
-interface ModalProps {
-  isOpen: boolean;
-  setIsOpen: Dispatch<SetStateAction<boolean>>
-}
-
 const WhatsAppModal = () => { 
   const { isOpen, setIsOpen } = useModal(); 
-  const [username, setUsername] = useState("");  
-
-  const handleUserInput = (e: ChangeEvent<HTMLInputElement>) => {
-    setUsername(e.currentTarget.value);
-  }
+  const [error, setError] = useState(false);
+  const usernameRef = useRef<HTMLInputElement>(null); 
 
   const onRedirect = () => {
-    if(!username.length) return;
+    if(!usernameRef.current?.value) {
+      setError(prevState => !prevState); 
+      return;
+    }
     const phoneNumber = 1126673211
-    const message = `Ola me chamo ${username} e gostaria de obter mais informacoes`
+    const message = `Ola me chamo ${usernameRef.current?.value} e gostaria de obter mais informacoes`
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`
     window.location.href = whatsappURL
   }  
@@ -69,8 +60,7 @@ const WhatsAppModal = () => {
             <div className="grid grid-cols-2 sm:mb-10 max-sm:flex max-sm:flex-col max-sm:gap-7">
               <Input 
                 placeholder="Seu nome" 
-                onChange={handleUserInput}
-                value={username}
+                ref={usernameRef}
               />
               <div className="sm:ml-auto max-sm:self-center"> 
               <Button 

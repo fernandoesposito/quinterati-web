@@ -11,8 +11,8 @@ interface CardDetailsProps {
 export const CardDetails = ({ type, header, children, image }: CardDetailsProps) => {
   return (
     <div className="w-full bg-white rounded-lg p-6 flex flex-col gap-8">
-      <div>
-        <Image src={image} alt="" />
+      <div className="flex justify-center w-full">
+        <Image src={image} alt="" height={340}/>
       </div>
       <div className="flex flex-col gap-3 font-roboto">
         <p className="text-secondary font-semibold text-xs">{type}</p>

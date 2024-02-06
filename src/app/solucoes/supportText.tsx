@@ -11,6 +11,20 @@ import infra_datarack from "../../../public/infra_datarack.svg"
 import infra_group from "../../../public/infra_group.svg"
 import infra_monitoring from "../../../public/infra_monitoring.svg"
 
+import lgpd_emx_ext from "../../../public/lgpd_emx_ext.png";
+
+import cyber_hack_ext from "../../../public/cyber_hack_ext.png";
+import cyber_ranking_ext from "../../../public/cyber_ranking_ext.png";
+
+import infra_cables_ext from "../../../public/infra_cables_ext.png"
+import infra_datacenter_ext from "../../../public/infra_datacenter_ext.png"
+import infra_datarack_ext from "../../../public/infra_datarack_ext.png"
+import infra_group_ext from "../../../public/infra_group_ext.png"
+import infra_monitoring_ext from "../../../public/infra_monitoring_ext.png"
+import { StaticImageData } from "next/image";
+
+
+
 
 
 export interface CardProps {
@@ -19,6 +33,7 @@ export interface CardProps {
   content: string;
   image: string;
   id: number;
+  extendedImage?: StaticImageData;
   expandedText: ReactNode
 }
 
@@ -35,6 +50,7 @@ const lgpdCard: CardProps[] = [
     header: "Proteja sua Organização e evite riscos legais e financeiros!",
     content: "O GestãoX LGPD BS é uma framework completa criada para auxiliar as organizações na conformidade com a Lei Geral de Proteção de Dados. A solução oferece recursos e funcionalidades que contempla desde o projeto de adequaçã... ",
     image: lgpd_emx,
+    extendedImage: lgpd_emx_ext,
     expandedText: 
     <div className="font-roboto leading-6 text-support max-md:text-sm">
       <p>O GestãoX LGPD BS é uma framework completa criada para auxiliar as organizações na conformidade com a Lei Geral de Proteção de Dados.<br/><br/>
@@ -66,6 +82,7 @@ const infraCard: CardProps[] = [
     header: "Solução modular para datacenter",
     content: "A solução é testada para atender as mais rígidas normas europeias e brasileiras, com certificação emitida por entidade independente e acreditada pelo Inmetro. Todo processo de fabricação, implementação e manutenção são auditados e controlados pela certificadora A montagem da infraestrutura é feita usando painéis modulares que se encaixam com... ",
     image: infra_datacenter,
+    extendedImage: infra_datacenter_ext,
     expandedText: <p className="font-roboto leading-6 text-support max-md:text-sm">
       A solução é testada para atender as mais rígidas normas europeias e brasileiras, com certificação emitida por entidade independente e acreditada pelo Inmetro. Todo processo de fabricação, implementação e manutenção são auditados e controlados pela certificadora.<br/><br/>
       A montagem da infraestrutura é feita usando painéis modulares que se encaixam como blocos de montar, permitindo rápida expansão, desmontagem ou realocação e transporte.<br/><br/>
@@ -78,6 +95,7 @@ const infraCard: CardProps[] = [
     header: "Um centro de dados completo, em gabinete independente, pronto para aplicações que exigem baixa latência para computação de borda",
     content: "Solução única e autônoma para implementação de equipamentos de TI que precisam estar próximos da fonte geradora dos dados... ",
     image: infra_datarack,
+    extendedImage: infra_datarack_ext,
     expandedText: <p className="font-roboto leading-6 text-support max-md:text-sm">
       Solução única e autônoma para implementação de equipamentos de TI que precisam estar próximos da fonte geradora dos dados.<br/><br/>
       Projetos desenvolvidos em parceria com o cliente para garantir alto nível de customização.<br/><br/>
@@ -93,6 +111,7 @@ const infraCard: CardProps[] = [
     header: "Comando e controle para ambientes críticos",
     content: "Concentrar dados e informações produzidas por diversos atores em um único centro operacional é fundamental para a geração de conhecimento que dará mais assertividade na tomada de decisão dos gestores – seja a respeito de políticas públicas, na administração de crises ou na gestão empresarial. Este recurso, denominado Centro de Comando e Controle (C2), é peça-chave para uma ge... ",
     image: infra_group,
+    extendedImage: infra_group_ext,
     expandedText: <p className="font-roboto leading-6 text-support max-md:text-sm">
       Concentrar dados e informações produzidas por diversos atores em um único centro operacional é fundamental para a geração de conhecimento que dará mais assertividade na tomada de decisão dos gestores – seja a respeito de políticas públicas, na administração de crises ou na gestão empresarial.<br/><br/>
       Este recurso, denominado Centro de Comando e Controle (C2), é peça-chave para uma gestão eficiente de ambientes de missão crítica, diretamente ligados a atividades econômicas, serviços municipais, administração de crises ou até mesmo a segurança de um país. Ele acelera o tempo de resposta em momentos de crise e promove um conhecimento situacional que permite antecipar ou mitigar o impacto de eventos negativos, tanto na vida das pessoas, quanto na performance das empresas.​
@@ -104,6 +123,7 @@ const infraCard: CardProps[] = [
     header: "Soluções para nuvem privada, backup e sustentação de aplicações",
     content: "Solução para modernização de datacenter tendo como cerne a implantação de sistema Hyper-Converged Infrastructure (HCI) que virtualiza o processamento, armazenamento e comunicação de rede do datacenter elevando a velocidade de processamento, segurança de dados, implantações ágeis e redução de custos.​.. ",
     image: infra_cables,
+    extendedImage: infra_cables_ext,
     expandedText: <p className="font-roboto leading-6 text-support max-md:text-sm">
       Solução para modernização de datacenter tendo como cerne a implantação de sistema Hyper-Converged Infrastructure (HCI) que virtualiza o processamento, armazenamento e comunicação de rede do datacenter elevando a velocidade de processamento, segurança de dados, implantações ágeis e redução de custos.<br/><br/>
       Para garantir a disponibilidade das aplicações, uma solução robusta de balanceamento de link e aplicações garante manutenção das sessões nas aplicações, criptografia de link e detectando e prevenindo ataques DDOS.
@@ -115,6 +135,7 @@ const infraCard: CardProps[] = [
     header: "Monitoramento, gestão e serviços continuados para ambientes de Missão Crítica​",
     content: "Um Centro de Excelência disponível 24x7x365 e que reúne toda a experiência de um time de especialistas para o monitoramento remoto dos data centers em tempo real. Sob processos rigorosos em todos os serviços prestados, os resultados são intervençõe... ",
     image: infra_monitoring,
+    extendedImage: infra_monitoring_ext,
     expandedText: <p className="font-roboto leading-6 text-support max-md:text-sm">
       Um Centro de Excelência disponível 24x7x365 e que reúne toda a experiência de um time de especialistas para o monitoramento remoto dos data centers em tempo real.<br/><br/>
       Sob processos rigorosos em todos os serviços prestados, os resultados são intervenções primorosas e com alto nível de exigência de qualidade no ambiente de TI.<br/><br/>
@@ -130,6 +151,7 @@ const cyberCard: CardProps[] = [
     header: "Soluções para prevenção contra ataques e restauração automatizada",
     content: "Solução de segurança para serviços e usuários finais baseada em inteligência artificial e machine learning, atuando desde a detecção e prevenção de ataques de negação de serviço até detecção e resposta nas estações de trabalho, podendo reverter um sistema criptografado por ransomware de forma automatizada... ",
     image: cyber_hack,
+    extendedImage: cyber_hack_ext,
     expandedText: <p className="font-roboto leading-6 text-support max-md:text-sm">
       Solução de segurança para serviços e usuários finais baseada em inteligência artificial e machine learning, atuando desde a detecção e prevenção de ataques de negação de serviço até detecção e resposta nas estações de trabalho, podendo reverter um sistema criptografado por ransomware de forma automatizada.
     </p>
@@ -140,6 +162,7 @@ const cyberCard: CardProps[] = [
     header: "Solução de Rating de segurança com identificação, gestão e classificação de vulnerabilidades de app e infraestrutura",
     content: "Pontuação de risco cibernético através da descoberta, gestão e classificação de vulnerabilidades nos ambientes de tecnologia. Varreduras periódicas em aplicações e ... ",
     image: cyber_ranking,
+    extendedImage: cyber_ranking_ext,
     expandedText: <p className="font-roboto leading-6 text-support max-md:text-sm">
       Pontuação de risco cibernético através da descoberta, gestão e classificação de vulnerabilidades nos ambientes de tecnologia.<br/><br/>
       Varreduras periódicas em aplicações e elementos de infraestrutura buscando vulnerabilidades conhecidas. Apresenta uma série de dashboards para monitorar o risco e a evolução.​

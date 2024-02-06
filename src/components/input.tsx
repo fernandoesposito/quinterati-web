@@ -1,4 +1,4 @@
-import React, { HTMLProps } from "react";
+import React, { ForwardRefRenderFunction, HTMLProps, forwardRef } from "react";
 
 interface InputProps {
   label?: string;
@@ -6,9 +6,7 @@ interface InputProps {
   type?: string;
 }
 
-type CombinedProps = InputProps & HTMLProps<HTMLInputElement>
-
-export const Input:  React.FC<CombinedProps> = ({ label, placeholder, ...rest }) => {
+const InputCustom:  ForwardRefRenderFunction<HTMLInputElement, InputProps> = ({ label, placeholder, ...rest }, ref) => {
   return (
     <div className="flex flex-col gap-2">
       { label ? 
@@ -19,12 +17,15 @@ export const Input:  React.FC<CombinedProps> = ({ label, placeholder, ...rest })
       }
       
       <input 
+        ref={ref}
         {...rest}
         placeholder={placeholder} 
         className="px-5 py-3 border rounded-lg border-gray-400 
         bg-white shadow shadow-black-[0.05] font-normal font-roboto text-sm text-gray-500
-        placeholder:text-sm placeholder:font-normal"
+        placeholder:text-sm placeholder:font-normal [&::-webkit-inner-spin-button]:appearance-none"
       />
     </div>
   )
 }
+
+export const Input = forwardRef(InputCustom)

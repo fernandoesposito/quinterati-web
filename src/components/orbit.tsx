@@ -3,7 +3,7 @@ import splash_3 from "../../public/splash_3.svg"
 
 const Orbit = () => {
   return (
-    <div className="md:size-[462px] size-[301px] bg-transparent flex flex-col items-center justify-center">
+    <div className="lg:size-[462px] size-[301px] bg-transparent flex flex-col items-center justify-center max-md:text-[0.5rem] text-xs overflow-hidden">
       <Image src={splash_3} alt="" width={30}/>
       <div className="lg:size-[462px] size-[301px] border border-orbit rounded-full absolute" />
       <>

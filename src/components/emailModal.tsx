@@ -14,6 +14,9 @@ export const EmailModal = ({ isOpen, setIsOpen }: EmailModalProps) => {
   return (
     <>
       { isOpen ? 
+        <div 
+          className="bg-smoke fixed z-40 w-[100%] h-[100%] flex justify-center items-center" 
+        >
         <div className="flex flex-col items-center max-w-2xl p-5 rounded-xl bg-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <div className="ml-auto text-secondary">
                 <IoClose 
@@ -23,15 +26,16 @@ export const EmailModal = ({ isOpen, setIsOpen }: EmailModalProps) => {
                 />
               </div>
           <Image src={email} alt="imagem personalizada de email" height={353} width={353}/>
-          <div className="px-20">
+          <div className="lg:px-20">
             <h2 className="font-semibold font-inter text-xl text-center text-primary">
               Mensagem enviada com sucesso!
             </h2>
-            <p className="leading-6 text-center font-roboto text-support px-10">
+            <p className="leading-6 text-center font-roboto text-support md:px-10">
               Em breve um de nossos especialistas entrará
               em contato para entender a sua demanda.
             </p>
           </div>
+        </div>
         </div> : <></>
       }
     </>

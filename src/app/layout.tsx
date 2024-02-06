@@ -52,7 +52,7 @@ export default function RootLayout({
   }, [])
 
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <link
           rel="icon"

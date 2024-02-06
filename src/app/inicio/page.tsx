@@ -1,7 +1,8 @@
 "use client"
 
-import { useRef } from "react";
+import { FormEvent, useRef, useState } from "react";
 
+import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 
@@ -28,14 +29,61 @@ import { MobileNavbar } from "@/components/mobileNavbar";
 // import globe from "../../../public/globe.svg";
 import email from "../../../public/email.svg";
 import quintera_bg from "../../../public/quintera_bg.svg";
+import { EmailModal } from "@/components/emailModal";
 
 export default function Intro() {
-  const emailRef = useRef(null);
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const phoneRef = useRef<HTMLInputElement>(null);
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+  const [error, setError] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);  
+
+  const onEmailSubmit = async (e: FormEvent) => {
+    e.preventDefault();    
+    setIsDisabled(prev => !prev);
+    
+    if(!nameRef.current?.value && !emailRef.current?.value && !phoneRef.current?.value && !messageRef.current?.value) {
+      setError(prevState => !prevState);
+      return;
+    }
+    // chama a api do email
+    const response = await fetch("/api/send", {
+      method: 'POST',
+      headers: {
+        'content-type': 'application.json'
+      },
+      body: JSON.stringify({
+        name: nameRef.current?.value,
+        email: emailRef.current?.value,
+        phone: phoneRef.current?.value,
+        message: messageRef.current?.value
+      })
+    })
+
+    const { status } = response;
+    
+    if(status === 500) {
+      setError(prevState => !prevState);
+      setIsDisabled(false);
+      return
+    }
+    setIsOpen(prevState => !prevState) 
+    setIsDisabled(false); 
+    setError(false);  
+    
+    nameRef!.current!.value = ""
+    emailRef!.current!.value = ""
+    phoneRef!.current!.value = ""
+    messageRef!.current!.value = ""
+  }
 
   return (
     <>
       <MobileNavbar />
-      <section className="w-screen bg-main lg:px-[4.5rem] px-6 md:pt-[calc(5rem+78px)] pt-[calc(50px+1.5rem)] flex flex-col md:pb-28 sm:pb-10">
+      <EmailModal isOpen={isOpen} setIsOpen={setIsOpen}/>
+      <section className="w-screen bg-main lg:px-[4.5rem] md:px-10 px-6 md:pt-[calc(5rem+78px)] pt-[calc(50px+1.5rem)] flex flex-col md:pb-28 max-md:pb-8">
         <Image src={quintera_bg} alt="" className="absolute top-0 left-0 z-20 max-md:hidden"/>
         <div className="md:grid md:grid-cols-2 gap-12 place-self-center"> {/*review gap-12 -> lower it?*/}
           {/* textos */}
@@ -105,19 +153,23 @@ export default function Intro() {
           {supportText.contact.title}
         </h3>
         <div className="lg:grid lg:grid-cols-2 lg:gap-9 flex flex-col-reverse ">
-          <form className="flex flex-col gap-4 px-3" ref={emailRef.current}>
+          <form className="flex flex-col gap-4 px-3"  onSubmit={onEmailSubmit}>
             <Input 
               label="Nome"
               placeholder="Qual é o seu nome?"
+              ref={nameRef}
             />
             <Input 
               label="E-mail"
               placeholder="Seu melhor e-mail"
               type="email"
+              ref={emailRef}
             />
             <Input 
               label="Telefone/Whatsapp"
               placeholder="(00) 00000-0000"
+              type="number"
+              ref={phoneRef}
             />
             <textarea 
               rows={6}
@@ -125,20 +177,25 @@ export default function Intro() {
               bg-white shadow shadow-black-[0.05] font-normal text-md text-gray-500
               placeholder:text-md placeholder:font-normal resize-none"  
               placeholder="Escreva sua mensagem"
+              ref={messageRef}
             />
             <div className="md:hidden">
               <Button 
                 text="Enviar mensagem"
                 style={{ marginLeft: "auto", marginRight: "auto", maxWidth: "192px"}}
                 icon={<FiMail />}
+                type="submit"
               />
             </div>
             <div className="max-md:hidden">
               <Button 
                 text="Enviar mensagem"
                 style={{ marginLeft: "auto", marginRight: "auto", width: "100%"}}
+                type="submit"
+                disabled={isDisabled}
               />
             </div>
+            { error ? <p className="text-xs font-roboto text-red-600">Algo deu errado no servidor</p> : <></>}
           </form>
           <Image src={email} alt="email" />
         </div>
@@ -152,21 +209,27 @@ export default function Intro() {
           {supportText.faq.title}
         </h3>
         <div className="sm:grid sm:grid-cols-3 md:gap-x-16 md:gap-y-8 flex flex-col max-sm:w-full max-md:gap-2">
-          <Card 
-            header={supportText.faq.topics[0].header}
-            content={supportText.faq.topics[0].content}
-            icon={<RiFolderLockLine />} 
-          />
-          <Card 
-            header={supportText.faq.topics[1].header}
-            content={supportText.faq.topics[1].content}
-            icon={<FiLock />}
-          />
-          <Card 
-            header={supportText.faq.topics[2].header}
-            content={supportText.faq.topics[2].content}
-            icon={<PiGitFork style={{ transform: "rotate(90deg)" }}/>}
-          />
+          <Link href="/faqs">
+            <Card 
+              header={supportText.faq.topics[0].header}
+              content={supportText.faq.topics[0].content}
+              icon={<RiFolderLockLine />} 
+            />
+          </Link>
+          <Link href="/faqs">
+            <Card 
+              header={supportText.faq.topics[1].header}
+              content={supportText.faq.topics[1].content}
+              icon={<FiLock />}
+            />
+          </Link>
+          <Link href="/faqs">
+            <Card 
+              header={supportText.faq.topics[2].header}
+              content={supportText.faq.topics[2].content}
+              icon={<PiGitFork style={{ transform: "rotate(90deg)" }}/>}
+            />
+          </Link>
         </div>
       </section>
     </>

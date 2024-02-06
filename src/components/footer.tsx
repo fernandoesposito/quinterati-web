@@ -50,7 +50,7 @@ export const Footer = () => {
     <div className="md:hidden w-screen bg-white px-7 pt-10 pb-16 text-center">
       <span className="text-gray-600 font-normal font-inter">
         © 2024 quintera.com.br<br/>
-        CNPJ: 00.000.000/0001-00<br/>
+        CNPJ: 19.941.422/0001-90<br/>
         Todos os direitos reservados.
       </span>
     </div>
