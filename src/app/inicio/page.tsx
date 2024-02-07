@@ -99,7 +99,7 @@ export default function Intro() {
               <h1 className="text-secondary font-roboto md:font-black font-bold md:text-left text-center md:text-header max-sm:max-w-64 text-lg md:leading-[3rem] leading-6 relative z-20">
                 {supportText.home.title}
               </h1>
-              <h2 className="md:text-subtitle text-gray-500 font-normal font-inter text-md md:text-left text-center leading-4 max-sm:max-w-72">
+              <h2 className="text-support font-normal font-inter text-md md:text-left text-center leading-4 max-sm:max-w-72">
                 {supportText.home.subtitle}
               </h2>
             </div>
