@@ -22,6 +22,12 @@ export default function Solutions() {
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [activeTopicId, setActiveTopicId] = useState<number | null>(null);  
 
+  useEffect(() => {
+    const width = window.screen.width;
+    const mediumScreen = 760;
+    width > mediumScreen ? setActiveTopicId(0) : null
+  }, [])
+  
   const FilteredCardDetails = () => {
     const [currentTopic, setCurrentTopic] = useState<CardProps | null>(null);
 

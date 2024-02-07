@@ -17,6 +17,12 @@ export default function Faqs() {
   const [ selectedId, setSelectedId ] = useState<number | null>(null);
   const [ selectedFaqIndex, setSelectedFaqIndex ] = useState<number | null>(null);
   const [ currentTopic, setCurrentTopic ] = useState<string>("");   
+  
+  useEffect(() => {
+    const width = window.screen.width;
+    const mediumScreen = 760;
+    width > mediumScreen ? setSelectedId(0) : null
+  }, [])
 
   useEffect(() => {
     setSelectedFaqIndex(null)
