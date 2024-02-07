@@ -24,7 +24,7 @@ const WhatsAppModal = () => {
       setError(prevState => !prevState); 
       return;
     }
-    const phoneNumber = 1126673211
+    const phoneNumber = +551126673211
     const message = `Ola me chamo ${usernameRef.current?.value} e gostaria de obter mais informacoes`
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`
     window.location.href = whatsappURL
