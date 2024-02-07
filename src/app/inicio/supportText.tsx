@@ -26,7 +26,7 @@ export const supportText = {
       },
       {
         header: "Infraestrutura",
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad"
+        content: "Uma infraestrutura sólida permite a implementação eficaz de medidas de segurança, como criptografia, firewalls e controles de acesso, garantindo a proteção adequada dos dados dos clientes."
       }
     ]
   }
