@@ -34,7 +34,7 @@ const WhatsAppModal = () => {
     <>
       { isOpen ? 
       <div 
-        className="bg-smoke fixed z-40 w-[100%] h-[100%] flex justify-center items-center" 
+        className="bg-smoke fixed z-40 w-[100%] h-[100%] flex justify-center items-center max-md:px-5" 
       >
         <div className="flex flex-col sm:gap-24 gap-14 sm:max-w-2xl w-full sm:p-5 p-6 rounded-xl bg-white z-50">
           <div className="ml-auto text-secondary">
