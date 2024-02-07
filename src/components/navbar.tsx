@@ -22,13 +22,15 @@ export const Navbar = () => {
           <GoArrowLeft size={24}/>
         </Link>}
       <div className="md:flex md:justify-between items-center max-md:col-span-2 max-md:col-start-2 max-md:col-end-3 max-md:justify-self-center relative z-30">
-        <Image 
-          src={quintera_logo} 
-          alt="quintera logo"
-          className="lg:mr-14 md:mr-6" 
-          width={130}
-          height={32} 
-        />
+        <Link href="/inicio">
+          <Image 
+            src={quintera_logo} 
+            alt="quintera logo"
+            className="lg:mr-14 md:mr-6" 
+            width={130}
+            height={32} 
+          />
+        </Link>
         <ul className="md:flex hidden lg:gap-6 md:gap-3 text-sm font-light text-gray-500 font-roboto">
           <li>
             <Link 
