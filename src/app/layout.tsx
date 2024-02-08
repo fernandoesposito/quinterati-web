@@ -47,7 +47,7 @@ export default function RootLayout({
   const [isLoading, setIsLoading] = useState(isHome);
 
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className="scroll-smooth">
       <head>
         <title>Quintera TI</title>
         <link

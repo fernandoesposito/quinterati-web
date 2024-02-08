@@ -13,7 +13,7 @@ import quintera_logo from "../../public/quintera_logo.svg";
 
 export const Navbar = () => {
   const pathname = usePathname();   
-  const { isOpen, setIsOpen } = useModal();    
+  const { isOpen, setIsOpen } = useModal();  
 
   return (
     <nav className="lg:px-[4.5rem] px-6 md:py-6 py-2 md:flex justify-between items-center grid grid-cols-3 w-screen bg-white shadow-lg shadow-black/10 fixed z-30">
@@ -42,8 +42,8 @@ export const Navbar = () => {
           </li>
           <li>
             <Link 
-              href="/beneficios"
-              className={`link ${pathname === "/beneficios" ? "text-primary font-semibold" : ""}`}
+              href="/inicio#beneficios"
+              className={`link ${pathname === "/inicio#beneficios" ? "text-primary font-semibold" : ""}`}
             >
               Benefícios
             </Link>
@@ -83,7 +83,7 @@ export const Navbar = () => {
         </ul>
       </div>
       <div className="flex gap-3">
-        <div className="md:flex-col max-md:hidden text-gray-500 font-poppins">
+        <div className="md:flex-col max-[775px]:hidden text-gray-500 font-poppins">
           <p className="text-end font-light text-[0.625rem]">Contato:</p>
           <h3 className="font-medium text-sm">11 98504-0153</h3>
         </div>
