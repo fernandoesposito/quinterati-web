@@ -90,7 +90,7 @@ export default function Intro() {
       <EmailModal isOpen={isOpen} setIsOpen={setIsOpen}/>
       <section className="w-screen bg-main lg:px-[4.5rem] md:px-10 px-6 md:pt-[calc(5rem+78px)] pt-[calc(50px+1.5rem)] flex flex-col max-md:pb-8 max-sm:-mb-8">
         <Image src={quintera_bg} alt="" className="absolute top-0 left-0 z-20 max-md:hidden"/>
-        <div className="md:grid md:grid-cols-2 gap-12 place-self-center"> {/*review gap-12 -> lower it?*/}
+        <div className="md:grid md:grid-cols-2 gap-12 place-self-center md:items-center"> {/*review gap-12 -> lower it?*/}
           {/* textos */}
           <div className="max-w-xl flex flex-col gap-6 place-items-center md:place-items-start">
             {/* <Highlight 
