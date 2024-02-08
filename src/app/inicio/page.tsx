@@ -6,13 +6,14 @@ import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 
-import { TbTargetArrow } from "react-icons/tb";
 import { BsTrophy } from "react-icons/bs";
-import { RiFolderLockLine } from "react-icons/ri";
-import { FiLock, FiMail } from "react-icons/fi";
 import { PiGitFork } from "react-icons/pi";
-
-import Benefits from "../beneficios/page";
+import { FaWhatsapp } from "react-icons/fa";
+import { GoCheckCircle } from "react-icons/go";
+import { TbTargetArrow } from "react-icons/tb";
+import { FiLock, FiMail } from "react-icons/fi";
+import { FaArrowTrendUp } from "react-icons/fa6";
+import { RiFolderLockLine } from "react-icons/ri";
 
 import { supportText } from "./supportText";
 // import { Tag } from "@/components/tag";
@@ -24,12 +25,16 @@ const Orbit = dynamic(() => import("../../components/orbit"), { ssr: false, load
 import { Button } from "@/components/button";
 import { Highlight } from "@/components/highlight";
 // import { CookiesModal } from "@/components/cookiesModal";
+import { EmailModal } from "@/components/emailModal";
 import { MobileNavbar } from "@/components/mobileNavbar";
+import { BenefitsCarousel } from "@/components/benefitsCarousel";
 
 // import globe from "../../../public/globe.svg";
 import email from "../../../public/email.svg";
+import brazil from "../../../public/brazil.svg";
 import quintera_bg from "../../../public/quintera_bg.svg";
-import { EmailModal } from "@/components/emailModal";
+import quintera_logo from "../../../public/quintera_logo.svg";
+
 
 export default function Intro() {
   const nameRef = useRef<HTMLInputElement>(null);
@@ -83,7 +88,7 @@ export default function Intro() {
     <>
       <MobileNavbar />
       <EmailModal isOpen={isOpen} setIsOpen={setIsOpen}/>
-      <section className="w-screen bg-main lg:px-[4.5rem] md:px-10 px-6 md:pt-[calc(5rem+78px)] pt-[calc(50px+1.5rem)] flex flex-col md:pb-28 max-md:pb-8">
+      <section className="w-screen bg-main lg:px-[4.5rem] md:px-10 px-6 md:pt-[calc(5rem+78px)] pt-[calc(50px+1.5rem)] flex flex-col max-md:pb-8 max-sm:-mb-8">
         <Image src={quintera_bg} alt="" className="absolute top-0 left-0 z-20 max-md:hidden"/>
         <div className="md:grid md:grid-cols-2 gap-12 place-self-center"> {/*review gap-12 -> lower it?*/}
           {/* textos */}
@@ -126,8 +131,63 @@ export default function Intro() {
           </h4>
         </div> */}
       </section>
-      <Benefits />
-      <section className="w-screen md:bg-white bg-gray-700 md:px-28 px-6 md:pt-12 py-8 md:pb-4 flex flex-col gap-12 items-center">
+      <section id="beneficios" className={`w-screen bg-main lg:px-44 px-6 md:pb-16 pb-7 flex flex-col md:gap-8 gap-2 items-center justify-center md:pt-[calc(5rem+1.5rem)] pt-14`}>
+      <div className="flex items-center justify-center">
+        <Highlight 
+          icon={<FaArrowTrendUp />}
+          description={supportText.benefits.highlight}
+        />
+      </div>
+      <h2 className="md:font-black font-bold font-roboto md:text-header md:leading-10 text-lg text-center max-sm:max-w-52 text-primary">
+        {supportText.benefits.title}
+      </h2>
+      <div className="md:hidden max-w-64 overflow-visible flex flex-col gap-2 mb-[calc(0.5rem+1rem)]">
+        <div className="flex justify-center gap-2">
+          <Highlight description="LGPD" />
+          <Highlight description="Infraestrutura" />
+          <Highlight description="Cibersegurança" />
+        </div>
+      </div>
+      <div className="md:grid md:grid-cols-2 md:gap-[4.5rem] flex flex-col gap-6">
+        <div className="md:w-96 p-7 md:px-10 md:py-7 flex flex-col max-sm:items-center rounded-2xl border border-gray-300">
+          <Image src={quintera_logo} alt="quinterati logo"/>
+          <summary className="list-none md:mt-3 mt-4 md:mb-4 mb-8 text-center md:text-left text-gray-500 font-inter font-medium text-md leading-5">
+            {supportText.benefits.summary}
+          </summary>
+          <dl className="flex flex-col gap-2 text-gray-500 font-inter font-medium text-md mr-auto">
+            {supportText.benefits.topics.map((topic, index) => (
+              <dt className="flex gap-1" key={index}>
+                <GoCheckCircle size={24} color="#001E3B"/>
+                <span>{topic}</span>
+            </dt>
+            ))}
+          </dl>
+          <div className="mt-5">
+            <Button 
+              text="Entrar em contato"
+              icon={<FaWhatsapp />}
+              onClick={() => setIsOpen(prevState => !prevState)}
+            />
+          </div>
+        </div>
+        <div className="relative flex flex-col items-center"> 
+          <Image src={brazil} alt="mapa do Brasil"/>
+          {/* <div className="md:absolute lg:-right-20 lg:bottom-5 md:bottom-2 mt-6">
+            button
+          </div> */}
+          {/* <div className="absolute lg:-right-24 lg:bottom-20 bottom-1/2">
+            <Tag 
+              icon={globe}
+              description="Em todo o Brasil você
+              encontra a excelênica
+              da Quintera!"
+            />
+          </div> */}
+        </div>
+      </div>
+      <BenefitsCarousel />
+    </section>
+      <section className="w-screen md:bg-white bg-gray-700 md:px-28 px-6 md:pt-12 pt-8 max-md:py-8 flex flex-col gap-12 items-center md:-mb-12">
         <div className="flex flex-col items-center justify-center gap-4 md:py-6 md:bg-main md:border w-full md:border-gray-300 md:rounded-2xl md:shadow-md md:shadow-black-[.1]">
           <Highlight 
             description={supportText.box.hightlight}
@@ -135,16 +195,16 @@ export default function Intro() {
             bgColor="blue"
           />
           <div className="flex flex-col gap-4 max-sm:gap-2 justify-center items-center">
-            <h3 className="font-black font-roboto text-header text-center text-support max-w-72 md:max-w-none leading-[3rem]">
+            <h3 className="font-black font-roboto text-header max-sm:text-3xl text-center text-support max-w-72 md:max-w-none leading-[3rem]">
               {supportText.box.title}
             </h3>
-            <summary className="list-none font-inter font-medium text-center text-md md:max-w-3xl text-support leading-5 max-w-80 md:px-10">
+            <summary className="list-none font-inter font-medium text-center max-sm:text-sm md:max-w-3xl text-support leading-5 max-w-80 md:px-10">
               {supportText.box.summary}
             </summary>
           </div>
         </div>
       </section>
-      <section id="contato" className="w-screen bg-white flex flex-col md:pb-4 md:pt-8 pt-6 items-center md:px-36 px-8">
+      <section id="contato" className="w-screen bg-white flex flex-col md:pb-4 items-center md:px-36 px-8 md:pt-[calc(5rem+18px)] pt-6">
         <Highlight 
             description={supportText.contact.highligh}
             icon={<TbTargetArrow />}

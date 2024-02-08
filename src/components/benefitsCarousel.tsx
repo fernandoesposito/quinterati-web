@@ -26,10 +26,14 @@ export const BenefitsCarousel = () => {
     desktop: {
       breakpoint: { max: 4000, min: 768},
       items: 8
+    },
+    mobile: {
+      breakpoint: { max: 767, min: 0 },
+      items: 4
     }
   }
   return (
-    <div className="w-screen h-14 mt-3">
+    <div className="w-screen mt-3">
       <Carousel 
         autoPlay
         arrows={false}
