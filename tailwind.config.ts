@@ -36,6 +36,7 @@ const config: Config = {
         "gray-500": "#4F4C4C",
         "gray-600": "#667085",
         "gray-700": "#D6D6D6",
+        "custom-black": "#1A1A1A",
       },
       fontSize: {
         header: "2.5rem",
