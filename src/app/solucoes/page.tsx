@@ -22,7 +22,7 @@ export default function Solutions() {
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [activeTopicId, setActiveTopicId] = useState<number | null>(null);
 
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
 
   const scrollToSection = () => {
     sectionRef.current?.scrollIntoView({ behavior: "smooth" });
