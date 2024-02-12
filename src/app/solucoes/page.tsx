@@ -29,6 +29,12 @@ export default function Solutions() {
   };
 
   useEffect(() => {
+    if (selectedId !== null) {
+      scrollToSection();
+    }
+  }, [selectedId]);
+
+  useEffect(() => {
     const width = window.screen.width;
     const mediumScreen = 760;
     width > mediumScreen ? setActiveTopicId(0) : null;
