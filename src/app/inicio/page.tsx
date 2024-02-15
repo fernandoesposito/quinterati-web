@@ -26,6 +26,7 @@ import { Button } from "@/components/button";
 import { Highlight } from "@/components/highlight";
 // import { CookiesModal } from "@/components/cookiesModal";
 import { EmailModal } from "@/components/emailModal";
+import WhatsAppModal from "@/components/whatsappModal";
 import { MobileNavbar } from "@/components/mobileNavbar";
 import { BenefitsCarousel } from "@/components/benefitsCarousel";
 
@@ -35,7 +36,6 @@ import brazil from "../../../public/brazil.svg";
 import quintera_bg from "../../../public/quintera_bg.svg";
 import quintera_logo from "../../../public/quintera_logo.svg";
 
-
 export default function Intro() {
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
@@ -43,51 +43,65 @@ export default function Intro() {
   const messageRef = useRef<HTMLTextAreaElement>(null);
   const [error, setError] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [isDisabled, setIsDisabled] = useState(false);  
+  const [isWhatsAppModalOpen, setIsWhatsAppModalOpen] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const onEmailSubmit = async (e: FormEvent) => {
-    e.preventDefault();    
-    setIsDisabled(prev => !prev);
-    
-    if(!nameRef.current?.value && !emailRef.current?.value && !phoneRef.current?.value && !messageRef.current?.value) {
-      setError(prevState => !prevState);
+    e.preventDefault();
+    setIsDisabled((prev) => !prev);
+
+    if (
+      !nameRef.current?.value &&
+      !emailRef.current?.value &&
+      !phoneRef.current?.value &&
+      !messageRef.current?.value
+    ) {
+      setError((prevState) => !prevState);
       return;
     }
     // chama a api do email
     const response = await fetch("/api/send", {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'content-type': 'application.json'
+        "content-type": "application.json",
       },
       body: JSON.stringify({
         name: nameRef.current?.value,
         email: emailRef.current?.value,
         phone: phoneRef.current?.value,
-        message: messageRef.current?.value
-      })
-    })
+        message: messageRef.current?.value,
+      }),
+    });
 
     const { status } = response;
-    
-    if(status === 500) {
-      setError(prevState => !prevState);
+
+    if (status === 500) {
+      setError((prevState) => !prevState);
       setIsDisabled(false);
-      return
+      return;
     }
-    setIsOpen(prevState => !prevState) 
-    setIsDisabled(false); 
-    setError(false);  
-    
-    nameRef!.current!.value = ""
-    emailRef!.current!.value = ""
-    phoneRef!.current!.value = ""
-    messageRef!.current!.value = ""
-  }
+    setIsOpen((prevState) => !prevState);
+    setIsDisabled(false);
+    setError(false);
+
+    nameRef!.current!.value = "";
+    emailRef!.current!.value = "";
+    phoneRef!.current!.value = "";
+    messageRef!.current!.value = "";
+  };
+
+  const handleWhatsAppModal = (e: FormEvent) => {
+    setIsWhatsAppModalOpen(!isWhatsAppModalOpen);
+  };
 
   return (
     <>
       <MobileNavbar />
       <EmailModal isOpen={isOpen} setIsOpen={setIsOpen} />
+      <WhatsAppModal
+        isOpen={isWhatsAppModalOpen}
+        setIsOpen={setIsWhatsAppModalOpen}
+      />
       <section className="w-screen bg-main lg:px-[4.5rem] md:px-10 px-6 md:pt-[calc(5rem+78px)] pt-[calc(50px+1.5rem)] flex flex-col max-md:pb-8 max-sm:-mb-8">
         <Image
           src={quintera_bg}
@@ -176,7 +190,7 @@ export default function Intro() {
               <Button
                 text="Entrar em contato"
                 icon={<FaWhatsapp />}
-                onClick={() => setIsOpen((prevState) => !prevState)}
+                onClick={(e: FormEvent) => handleWhatsAppModal(e)}
               />
             </div>
           </div>

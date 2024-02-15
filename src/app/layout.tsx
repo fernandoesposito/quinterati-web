@@ -12,25 +12,25 @@ import { Splash } from "@/components/splash";
 import { ModalProvider } from "@/context/useModal";
 import WhatsAppModal from "@/components/whatsappModal";
 
-const roboto = Roboto({ 
-  subsets: ["latin"], 
-  variable: "--font-roboto",
-  weight: ["300", "400", "500", "700"]},
-);
-const poppins = Poppins({ 
-  subsets: ["latin"], 
-  weight: ["300", "400", "500", "700"],
-  variable: "--font-poppins"
-});
-const lato = Lato({ 
-  weight: ["700"], 
+const roboto = Roboto({
   subsets: ["latin"],
-  variable: "--font-lato"
+  variable: "--font-roboto",
+  weight: ["300", "400", "500", "700"],
+});
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+  variable: "--font-poppins",
+});
+const lato = Lato({
+  weight: ["700"],
+  subsets: ["latin"],
+  variable: "--font-lato",
 });
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter"
-})
+  variable: "--font-inter",
+});
 
 // export const metadata: Metadata = {
 //   title: "Quinterati",
@@ -45,28 +45,32 @@ export default function RootLayout({
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [isLoading, setIsLoading] = useState(isHome);
+  const [isWhatsAppModalOpen, setIsWhatsAppModalOpen] = useState(false);
 
   return (
     <html lang="pt-BR" className="scroll-smooth">
       <head>
         <title>Quintera TI</title>
-        <link
-          rel="icon"
-          href="./icon.svg"
-        />
+        <link rel="icon" href="./icon.svg" />
       </head>
-      <body className={`${roboto.variable} ${poppins.variable} ${lato.variable} ${inter.variable} overflow-x-hidden`}>
-      { isHome && isLoading ? 
-        <Splash isLoading={isLoading} setIsLoading={setIsLoading}/> :
-        <>
-        <ModalProvider>
-          <WhatsAppModal />
-          <Navbar />
-            {children}
-          <Footer />
-        </ModalProvider>
-        </>
-      }
+      <body
+        className={`${roboto.variable} ${poppins.variable} ${lato.variable} ${inter.variable} overflow-x-hidden`}
+      >
+        {isHome && isLoading ? (
+          <Splash isLoading={isLoading} setIsLoading={setIsLoading} />
+        ) : (
+          <>
+            <ModalProvider>
+              <WhatsAppModal
+                isOpen={isWhatsAppModalOpen}
+                setIsOpen={setIsWhatsAppModalOpen}
+              />
+              <Navbar />
+              {children}
+              <Footer />
+            </ModalProvider>
+          </>
+        )}
       </body>
     </html>
   );

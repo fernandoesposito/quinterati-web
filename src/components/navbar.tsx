@@ -112,7 +112,7 @@ export const Navbar = () => {
       <div className="flex gap-3">
         <div className="md:flex-col max-[775px]:hidden text-gray-500 font-poppins">
           <p className="text-end font-light text-[0.625rem]">Contato:</p>
-          <h3 className="font-medium text-sm">11 98504-0153</h3>
+          <h3 className="font-medium text-sm">11 2667-3211</h3>
         </div>
         <Image
           src={whatsapp}
