@@ -1,7 +1,6 @@
 "use client"
 
 import { FormEvent, useRef, useState } from "react";
-import Head from 'next/head';
 
 import Link from "next/link";
 import Image from "next/image";
@@ -97,10 +96,6 @@ export default function Intro() {
 
   return (
     <>
-      <Head>
-        <meta name="emx-lgpsite-id" content="1" />
-        <script src="https://lgpdquintera.nuvemx.com.br/Cookies/emx-inject.js?website_code=1" className="emx-cookie" async></script>
-      </Head>
       <MobileNavbar />
       <EmailModal isOpen={isOpen} setIsOpen={setIsOpen} />
       <WhatsAppModal
