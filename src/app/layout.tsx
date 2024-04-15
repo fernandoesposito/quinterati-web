@@ -52,8 +52,8 @@ export default function RootLayout({
       <head>
         <title>Quintera TI</title>
         <link rel="icon" href="./icon.svg" />
-        <meta name="emx-lgpsite-id" content="1" />
-        <script src="https://lgpdquintera.nuvemx.com.br/Cookies/emx-inject.js?website_code=1" className="emx-cookie" async></script>
+        {/* <meta name="emx-lgpsite-id" content="1" />
+        <script src="https://lgpdquintera.nuvemx.com.br/Cookies/emx-inject.js?website_code=1" className="emx-cookie" async></script> */}
       </head>
       <body
         className={`${roboto.variable} ${poppins.variable} ${lato.variable} ${inter.variable} overflow-x-hidden`}
