@@ -61,7 +61,7 @@ h1 .accent{
   background: linear-gradient(100deg, var(--cyan) 0%, #7fd4f2 55%, var(--cyan) 100%);
   -webkit-background-clip:text; background-clip:text; color:transparent;
 }
-.lede{ font-size: clamp(15px,1.5vw,17px); line-height:1.6; color: var(--gray); max-width:38ch; margin:0; }
+.lede{ font-size: clamp(15px,1.5vw,17px); line-height:1.6; color: var(--white); max-width:38ch; margin:0; }
 
 /* ---------------- cartão de data/hora/local ---------------- */
 .pass-wrap{ position:relative; z-index:3; margin-top:-24px; padding: 0 clamp(24px,4vw,64px); }
